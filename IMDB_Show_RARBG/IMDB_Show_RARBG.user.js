@@ -3,7 +3,7 @@
 // @namespace   IMDB_Show_RARBG
 // @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
-// @version     6
+// @version     7
 // @author      Sappurit
 // @updateURL   https://openuserjs.org/meta/Sapp/IMDB_Show_RARBG.meta.js
 // @license     MIT
@@ -35,8 +35,8 @@
     let rarbgAnchor = document.createElement('a');
     rarbgAnchor.setAttribute('target', '_blank');
     rarbgAnchor.setAttribute('class', 'ipc-link ipc-link--baseAlt ipc-link--inherit-color');
-//	rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category[]=44&category[]=54&imdb=' + id);
-    rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category[]=44&imdb=' + id);
+//  rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category[]=41&category[]=54&imdb=' + id);
+    rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category=41;44&imdb=' + id);
     rarbgAnchor.innerText = 'RARBG';
 
 //  44 = x264/1080       50 = x264/4k
