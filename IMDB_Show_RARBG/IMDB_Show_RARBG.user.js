@@ -5,7 +5,8 @@
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
 // @version     7
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/IMDB_Show_RARBG.meta.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
 // @license     MIT
 // @match       https://*.imdb.com/title/tt*
 // ==/UserScript==
