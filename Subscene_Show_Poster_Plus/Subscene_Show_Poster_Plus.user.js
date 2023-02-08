@@ -25,6 +25,7 @@ var posterHeight = '180px';
 
 // Choose RARBG Category filter to display
 // 41 = TV HD Episodes
+// 49 = TV UHD Episodes
 // 44 = x264/1080       50 = x264/4k
 // 54 = x265/1080       51 = x265/4k
 // var rarbgCategory = '41;44;54;50;51';
