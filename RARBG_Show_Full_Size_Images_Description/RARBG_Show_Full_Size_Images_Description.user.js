@@ -3,10 +3,10 @@
 // @namespace   RARBG_Show_Full_Size_Images_Description
 // @description Shows full-size images in the description. Work with some uploaders (p33Rn3t, Scene, OldFart, rartv, Dohrnii, daniel76).
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     12
+// @version     13
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/RARBG_Show_Full_Size_Images_Description.meta.js
-// @downloadURL 
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
 // @license     MIT
 // @match       https://*.rarbg.to/torrent/*
 // @match       https://*.rarbgget.org/torrent/*
@@ -47,12 +47,12 @@
 
     function copyText()
     {
-		let textarea = document.createElement('textarea');
-		document.body.appendChild(textarea);
-		textarea.value = this.previousElementSibling.previousElementSibling.getAttribute('href');
-		textarea.select();
-		document.execCommand('copy');
-		document.body.removeChild(textarea);
+       let textarea = document.createElement('textarea');
+       document.body.appendChild(textarea);
+       textarea.value = this.previousElementSibling.previousElementSibling.getAttribute('href');
+       textarea.select();
+       document.execCommand('copy');
+       document.body.removeChild(textarea);
     }
 
     //-------------------------------------------------------------------------

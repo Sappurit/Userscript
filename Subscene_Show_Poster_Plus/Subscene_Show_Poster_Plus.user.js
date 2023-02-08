@@ -3,10 +3,10 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     3
+// @version     4
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/Subscene_Show_Poster_Plus.meta.js
-// @downloadURL https://openuserjs.org/install/Sapp/Subscene_Show_Poster_Plus.user.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @license     MIT
 // @match       https://*.subscene.com/*
 // ==/UserScript==
@@ -63,7 +63,7 @@ function otherPage()
 
         let rarbgElement = document.createElement('a');
         rarbgElement.innerText = 'RARBG';
-	    rarbgElement.setAttribute('target', '_blank');
+        rarbgElement.setAttribute('target', '_blank');
         rarbgElement.setAttribute('class', 'imdb');
         rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?category=' + rarbgCategory + '&imdb=' + id);
         imdbElement.after(' ', rarbgElement);

@@ -3,10 +3,10 @@
 // @namespace   SiamBit_Show_Poster
 // @description Shows high quality posters on torrent lists.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=siambit.me
-// @version     9
+// @version     10
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/SiamBit_Show_Poster.meta.js
-// @downloadURL 
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/SiamBit_Show_Poster/SiamBit_Show_Poster.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/SiamBit_Show_Poster/SiamBit_Show_Poster.user.js
 // @license     MIT
 // @match       https://*.siambit.me/viewbrsb.php*
 // @match       https://*.siambit.me/viewno18sb.php*
@@ -37,7 +37,7 @@
 
         try
         {
-    	    let anchor = row.querySelector('img[title="รูปภาพตัวอย่าง"]').parentElement;
+            let anchor = row.querySelector('img[title="รูปภาพตัวอย่าง"]').parentElement;
             let link = anchor.href;
 
             let thumbImage = document.createElement('img');

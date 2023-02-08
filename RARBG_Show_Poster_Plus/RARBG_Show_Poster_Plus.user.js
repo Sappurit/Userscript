@@ -3,10 +3,10 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     23
+// @version     24
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/RARBG_Show_Poster_Plus.meta.js
-// @downloadURL https://openuserjs.org/install/Sapp/RARBG_Show_Poster_Plus.user.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @license     MIT
 // @match       https://*.rarbg.to/torrents.php*
 // @match       https://*.rarbgget.org/torrents.php*
