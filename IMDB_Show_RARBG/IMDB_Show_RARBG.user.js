@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        IMDB Show RARBG
 // @namespace   IMDB_Show_RARBG
-// @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080.
+// @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080 and TV HD Series.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
 // @version     7
 // @author      Sappurit
@@ -39,6 +39,9 @@
 //  rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category[]=41&category[]=54&imdb=' + id);
     rarbgAnchor.setAttribute('href', 'https://rarbgenter.org/torrents.php?category=41;44&imdb=' + id);
     rarbgAnchor.innerText = 'RARBG';
+
+//  41 = TV HD Episodes
+//  49 = TV UHD Episodes
 
 //  44 = x264/1080       50 = x264/4k
 //  54 = x265/1080       51 = x265/4k
