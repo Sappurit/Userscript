@@ -3,9 +3,10 @@
 // @namespace   Avcollectors_Show_Sukebei
 // @description Shows Javtrailers and Sukebei search links on the Avcollectors webpage. Copy the title name to the clipboard.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=avcollectors.com
-// @version     1
+// @version     2
 // @author      Sappurit
-// @updateURL   https://openuserjs.org/meta/Sapp/Avcollectors_Show_Sukebei.meta.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/Avcollectors_Show_Sukebei/Avcollectors_Show_Sukebei.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/Avcollectors_Show_Sukebei/Avcollectors_Show_Sukebei.user.js
 // @license     MIT
 // @match       http://*.avcollectors.com/board/index.php?topic=*
 // @match       https://*.avcollectors.com/board/index.php?topic=*
