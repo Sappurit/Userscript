@@ -6,6 +6,7 @@
 // @version     9
 // @author      Sappurit
 // @updateURL   https://openuserjs.org/meta/Sapp/SiamBit_Show_Poster.meta.js
+// @downloadURL 
 // @license     MIT
 // @match       https://*.siambit.me/viewbrsb.php*
 // @match       https://*.siambit.me/viewno18sb.php*

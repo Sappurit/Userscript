@@ -6,6 +6,7 @@
 // @version     12
 // @author      Sappurit
 // @updateURL   https://openuserjs.org/meta/Sapp/RARBG_Show_Full_Size_Images_Description.meta.js
+// @downloadURL 
 // @license     MIT
 // @match       https://*.rarbg.to/torrent/*
 // @match       https://*.rarbgget.org/torrent/*

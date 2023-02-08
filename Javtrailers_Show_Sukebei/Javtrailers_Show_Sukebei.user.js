@@ -6,6 +6,7 @@
 // @version     1
 // @author      Sappurit
 // @updateURL   https://openuserjs.org/meta/Sapp/Javtrailers_Show_Sukebei.meta.js
+// @downloadURL 
 // @license     MIT
 // @match       https://*.javtrailers.com/video/*
 // ==/UserScript==
