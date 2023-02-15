@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     24
+// @version     25
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
@@ -14,6 +14,9 @@
 // ==/UserScript==
 
 //---------------------------------------------------------------------
+
+// Choose your annoy titles to filter out from the browse page.
+var blockTitle = '(CHINESE|JAPANESE)';
 
 // Choose the subtitle languages to highlight the entire row.
 // Set to none or some unique word if you don't want to highlight any subtitle.
@@ -33,6 +36,7 @@ var delay = 1000;
 
 //---------------------------------------------------------------------
 
+var blockTitleRegExp = new RegExp(`${blockTitle}`, 'si');
 var regLang = new RegExp(`${subLang}.srt`, 'gi');
 var regList = new RegExp('[A-Za-z]+.srt', 'gi');
 var num = 0;
@@ -78,6 +82,11 @@ var num = 0;
             let torrentTitle = torrent.innerText;
             let torrentSize  = row.cells[4].innerText;
             let torrentStyle = window.getComputedStyle(torrent); // final CSS
+
+            //---------------------------------------------------------------------
+
+            let blockTitleArray = torrentTitle.match(blockTitleRegExp);
+            if (blockTitleArray) { row.replaceChildren(); continue; }
 
             //---------------------------------------------------------------------
 
