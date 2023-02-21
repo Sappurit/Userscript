@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     25
+// @version     26
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
@@ -22,9 +22,9 @@ var blockTitle = '(CHINESE|JAPANESE)';
 // Set to none or some unique word if you don't want to highlight any subtitle.
 // var subLang = '(German|Russian|Thai)';
 // var subLang = 'Portu*';
-var subLang = 'Thai';
 // var subLang = 'none or unique word';
 // var subLang = 'English';
+var subLang = 'Thai';
 
 // Choose the highlight color when found your subtitle languages.
 // var subColor = 'Cornsilk';
@@ -179,7 +179,7 @@ var num = 0;
                 copyInfo.style.font = torrentStyle.font;
                 copyInfo.style.color = torrentStyle.color;
                 copyInfo.style.textDecoration = 'none';
-                copyInfo.addEventListener('click', function(e){copyText(e, `${torrentTitle}\n${torrentSize}\n${magnetHash}\n${magnetElement.href}`)}, false);
+                copyInfo.addEventListener('click', function(e){copyText(e, `${torrentTitle}\n${torrentSize}\n${magnetHash}\n${magnetElement.href}\n`)}, false);
 
                 //---------------------------------------------------------------------
 
