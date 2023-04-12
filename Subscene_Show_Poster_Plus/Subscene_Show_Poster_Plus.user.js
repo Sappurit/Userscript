@@ -3,7 +3,7 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     4
+// @version     5
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
@@ -14,7 +14,7 @@
 //---------------------------------------------------------------------
 
 // Choose your annoy titles to filter out from the browse page.
-var blockTitle = '(chainsaw-man|Luh_Fil|Sarangui|Kokduui|Beopjjeon|Kessen-hen|Seukaendeul|Isseulkka|Pijikeol)';
+var blockTitle = '(chainsaw-man|Luh_Fil|Sarangui|Kokduui|Beopjjeon|Kessen-hen|Seukaendeul|Isseulkka|Pijikeol|Mobeomtaeksi)';
 
 // Choose the delay (milisec) between loop while fetch all subtitles data to avoid IP ban.
 var delay = 1000;
