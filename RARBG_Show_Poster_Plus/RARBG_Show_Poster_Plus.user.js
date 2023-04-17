@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     26
+// @version     27
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
@@ -158,6 +158,7 @@ var num = 0;
 
                 let magnetElement = torrentDoc.querySelector('table[class="lista-rounded"] table:nth-of-type(1) a[href*="magnet:"]');
                 let magnetHash = magnetElement.href.replace(/.*\b(\w{40})\b.*/, '$1').toUpperCase();
+		magnetElement.href = magnetElement.href.replace('tracker.trackerfix.com', 'tracker.gbitt.info');
                 magnetElement.innerText = '🧲 Magnet';
                 magnetElement.style.textDecoration = 'none';
 
