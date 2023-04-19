@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Full_Size_Images_Description
 // @description Shows full-size images in the description. Work with some uploaders (p33Rn3t, Scene, OldFart, rartv, Dohrnii, daniel76).
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     15
+// @version     16
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
@@ -29,12 +29,11 @@
     let magnetHash = magnetElement.href.replace(/.*\b(\w{40})\b.*/, '$1').toUpperCase();
 
     magnetElement.href = magnetElement.href.replace('tracker.trackerfix.com', 'tracker.gbitt.info');
-    magnetElement.href += '&tr=http://open.acgnxtracker.com/announce';
-    magnetElement.href += '&tr=http://opentracker.i2p.rocks/announce';
-    magnetElement.href += '&tr=http://tracker.opentrackr.org/announce';
-    magnetElement.href += '&tr=http://tracker.tamersunion.org/announce';
-    magnetElement.href += '&tr=http://tracker.openbittorrent.com/announce';
-    magnetElement.href += '&dn=' + torrentTitle;
+    magnetElement.href += '&tr=http%3A%2F%2Fopen.acgnxtracker.com%2Fannounce';
+    magnetElement.href += '&tr=http%3A%2F%2Fopentracker.i2p.rocks%2Fannounce';
+    magnetElement.href += '&tr=http%3A%2F%2Ftracker.opentrackr.org%2Fannounce';
+    magnetElement.href += '&tr=http%3A%2F%2Ftracker.tamersunion.org%2Fannounce';
+    magnetElement.href += '&tr=http%3A%2F%2Ftracker.openbittorrent.com%2Fannounce';
 
     magnetElement.innerText = magnetHash;
     magnetElement.style.textDecoration = 'none';
