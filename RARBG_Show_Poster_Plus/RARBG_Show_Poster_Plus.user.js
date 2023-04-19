@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     28
+// @version     29
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
@@ -164,6 +164,7 @@ var num = 0;
                 magnetElement.href += '&tr=http://tracker.opentrackr.org/announce';
                 magnetElement.href += '&tr=http://tracker.tamersunion.org/announce';
                 magnetElement.href += '&tr=http://tracker.openbittorrent.com/announce';
+                magnetElement.href += '&dn=' + torrentTitle;
                 magnetElement.innerText = '🧲 Magnet';
                 magnetElement.style.textDecoration = 'none';
 
