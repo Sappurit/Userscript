@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Full_Size_Images_Description
 // @description Shows full-size images in the description. Work with some uploaders (p33Rn3t, Scene, OldFart, rartv, Dohrnii, daniel76).
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     16
+// @version     17
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Full_Size_Images_Description/RARBG_Show_Full_Size_Images_Description.user.js
@@ -28,7 +28,8 @@
     let magnetElement = document.querySelector('table[class="lista-rounded"] table:nth-of-type(1) a[href*="magnet:"]')
     let magnetHash = magnetElement.href.replace(/.*\b(\w{40})\b.*/, '$1').toUpperCase();
 
-    magnetElement.href = magnetElement.href.replace('tracker.trackerfix.com', 'tracker.gbitt.info');
+    magnetElement.href = magnetElement.href.replace('&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce', '');
+    magnetElement.href += '&tr=http%3A%2F%2Ftracker.gbitt.info%2Fannounce';
     magnetElement.href += '&tr=http%3A%2F%2Fopen.acgnxtracker.com%2Fannounce';
     magnetElement.href += '&tr=http%3A%2F%2Fopentracker.i2p.rocks%2Fannounce';
     magnetElement.href += '&tr=http%3A%2F%2Ftracker.opentrackr.org%2Fannounce';
