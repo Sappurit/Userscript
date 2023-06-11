@@ -3,7 +3,7 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     31
+// @version     32
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js

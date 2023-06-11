@@ -3,7 +3,7 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     6
+// @version     7
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
@@ -13,8 +13,27 @@
 
 //---------------------------------------------------------------------
 
-// Choose your annoy titles to filter out from the browse page.
-var blockTitle = '(chainsaw-man|Luh_Fil|Sarangui|Kokduui|Beopjjeon|Kessen-hen|Seukaendeul|Isseulkka|Pijikeol|Mobeomtaeksi|misskate)';
+// https://unicode.org/iso15924/iso15924-codes.html
+// https://unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt
+
+// 285	Bopo	Bopomofo
+// 286	Hang	Hangul
+// 287	Kore	Korean				Han + Hangul
+
+// 500	Hani	Han (Hanzi, Kanji, Hanja)
+// 501	Hans	Han (Simplified variant)
+// 502	Hant	Han (Traditional variant)
+// 503	Hanb	Han with Bopomofo		Han + Bopomofo
+
+// 410	Hira	Hiragana
+// 411	Kana    Katakana
+// 412	Hrkt	Katakana_Or_Hiragana		Hiragana + Katakana
+// 413	Jpan	Japanese			Han + Hiragana + Katakana
+
+//---------------------------------------------------------------------
+
+// Choose your annoy titles to filter out from the browse page. Eg. Korean, Chinese, Japanese character sets.
+var blockTitle = '(Mobeomtaeksi|[\\p{sc=Hang}\\p{sc=Hani}\\p{sc=Hira}\\p{sc=Kana}]{3})';
 
 // Choose the delay (milisec) between loop while fetch all subtitles data to avoid IP ban.
 var delay = 1000;
@@ -33,7 +52,7 @@ var rarbgCategory = '41;44';
 
 //---------------------------------------------------------------------
 
-var blockTitleRegExp = new RegExp(`${blockTitle}`, 'si');
+var blockTitleRegExp = new RegExp(`${blockTitle}`, 'siu');
 var num = 0;
 
 //---------------------------------------------------------------------

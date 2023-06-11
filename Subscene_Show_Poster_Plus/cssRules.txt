@@ -1,0 +1,482 @@
+let i = 0;
+for (let cssRule of document.styleSheets[0].cssRules)
+{
+	console.log(`${i++} ${cssRule.cssText.replace(/\n/g, ' ')}`);
+}
+
+//-----------------------------------------------------------------------------
+
+let i = 0;
+for (let cssRule of document.styleSheets[1].cssRules)
+{
+	console.log(`${i++} ${cssRule.cssText.replace(/\n/g, ' ')}`);
+}
+
+//-----------------------------------------------------------------------------
+
+0: html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 100%; vertical-align: baseline; background: transparent; }
+1: body { line-height: 1; }
+2: article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+3: nav ul { list-style: none; }
+4: ul.paragraph { list-style: disc; padding-left: 24px; }
+5: ul.paragraph li { list-style: disc; line-height: 18px; }
+6: blockquote, q { quotes: none; }
+7: blockquote::before, blockquote::after, q::before, q::after { content: none; }
+8: a { margin: 0px; padding: 0px; font-size: 100%; vertical-align: baseline; background: transparent; }
+9: ins { color: rgb(0, 0, 0); text-decoration: none; }
+10: mark { background-color: rgb(255, 255, 153); color: rgb(0, 0, 0); font-style: italic; font-weight: bold; }
+11: del { text-decoration: line-through; }
+12: abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+13: table { border-collapse: collapse; border-spacing: 0px; }
+14: hr { display: block; height: 1px; border-width: 1px 0px 0px; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image: initial; border-top-style: solid; border-top-color: rgb(204, 204, 204); margin: 1em 0px; padding: 0px; }
+15: input, select { vertical-align: middle; }
+16: li { list-style-type: none; text-indent: 0px; margin: 4px 0px; }
+17: .clearfix::after { visibility: hidden; display: block; font-size: 0px; content: " "; clear: both; height: 0px; }
+18: .clearfix { display: inline-table; }
+19: * html .clearfix { height: 1%; }
+20: .clearfix { display: block; }
+21: .hidden { display: none; }
+22: .hint { position: relative; display: inline-block; }
+23: .hint::before, .hint::after { position: absolute; opacity: 0; z-index: 1000000; pointer-events: none; transition: all 0.3s ease 0s; }
+24: .hint:hover::before, .hint:hover::after { opacity: 1; }
+25: .hint::before { content: ""; position: absolute; background: transparent; border: 6px solid transparent; z-index: 1000001; }
+26: .hint::after { content: attr(data-hint); background: rgb(56, 56, 56); color: rgb(255, 255, 255); text-shadow: black 0px -1px 0px; padding: 8px 10px; font-size: 12px; line-height: 12px; white-space: nowrap; box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 8px; }
+27: .hint--left::before { border-left-color: rgb(56, 56, 56); }
+28: .hint--top::before { border-top-color: rgb(56, 56, 56); }
+29: .hint--left::before { margin-right: -12px; margin-bottom: -6px; }
+30: .hint--left::after { margin-bottom: -14px; }
+31: .hint--left::before, .hint--left::after { right: 100%; bottom: 50%; }
+32: .hint--left:hover::before, .hint--left:hover::after { transform: translateX(-8px); }
+33: .hint--top::before { margin-bottom: -12px; }
+34: .hint--top::before, .hint--top::after { bottom: 100%; left: 50%; }
+35: .hint--top::after, .hint--top::before { transform: translateX(-50%); }
+36: .hint--top:hover::after, .hint--top:hover::before, .hint--top:focus::after, .hint--top:focus::before { transform: translateX(-50%) translateY(-8px); }
+37: .sand-box { background-color: rgb(237, 228, 206); border-radius: 4px; margin-top: 8px; padding: 1px 5px; }
+38: .sand-box > ul > li, .sand-box .area { background-color: rgb(255, 255, 255); border-bottom: 1px solid rgb(184, 184, 184); border-radius: 5px; margin: 5px 0px; overflow: hidden; padding-left: 5px; min-height: 60px; }
+39: .sand-box .area { padding-top: 5px; padding-right: 5px; padding-bottom: 5px; }
+40: .sand-box li { margin: 0px; }
+41: .sand-box > ul > li.footer { min-height: 28px; }
+42: .sand-box > ul > li.footer > a { height: 28px; line-height: 28px; display: block; padding-left: 3px; }
+43: .sand-box > ul > li > ol > li:first-child { padding-top: 8px; }
+44: .sand-box > ul > li > ol > li { padding: 3px; }
+45: .sand-box > ul > li > ol > li:last-child { padding-bottom: 8px; }
+46: .sand-box .title, .sand-box .sub { padding: 6px 0px 6px 6px; }
+47: .sand-box .sub { display: inline-block; }
+48: .pagination { display: inline-block; padding-left: 0px; margin: 20px 0px; border-radius: 4px; }
+49: .pagination > li { display: inline; }
+50: .pagination > li > a, .pagination > li > span { position: relative; float: left; padding: 6px 12px; margin-left: -1px; line-height: 1.42857; text-decoration: none; background-color: rgb(255, 255, 255); border: 1px solid rgb(221, 221, 221); }
+51: .pagination > li:first-child > a, .pagination > li:first-child > span { margin-left: 0px; border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+52: .pagination > li:last-child > a, .pagination > li:last-child > span { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+53: .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus { background-color: rgb(238, 238, 238); }
+54: .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus { z-index: 2; color: rgb(255, 255, 255); cursor: default; background-color: rgb(66, 139, 202); border-color: rgb(66, 139, 202); }
+55: .pagination > .disabled > span, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus { color: rgb(153, 153, 153); cursor: not-allowed; background-color: rgb(255, 255, 255); border-color: rgb(221, 221, 221); }
+56: .pagination-lg > li > a, .pagination-lg > li > span { padding: 10px 16px; font-size: 18px; }
+57: .pagination-lg > li:first-child > a, .pagination-lg > li:first-child > span { border-bottom-left-radius: 6px; border-top-left-radius: 6px; }
+58: .pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
+59: .pagination-sm > li > a, .pagination-sm > li > span { padding: 5px 10px; font-size: 12px; }
+60: .pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span { border-bottom-left-radius: 3px; border-top-left-radius: 3px; }
+61: .pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+62: .pager { padding-left: 0px; margin: 20px 0px; text-align: center; list-style: none; }
+63: .pager::before, .pager::after { display: table; content: " "; }
+64: .pager::after { clear: both; }
+65: .pager::before, .pager::after { display: table; content: " "; }
+66: .pager::after { clear: both; }
+67: .pager li { display: inline; }
+68: .pager li > a, .pager li > span { display: inline-block; padding: 5px 14px; background-color: rgb(255, 255, 255); border: 1px solid rgb(221, 221, 221); border-radius: 15px; }
+69: .pager li > a:hover, .pager li > a:focus { text-decoration: none; background-color: rgb(238, 238, 238); }
+70: .pager .next > a, .pager .next > span { float: right; }
+71: .pager .previous > a, .pager .previous > span { float: left; }
+72: .pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span { color: rgb(153, 153, 153); cursor: not-allowed; background-color: rgb(255, 255, 255); }
+73: grecaptcha-badge { display: none !important; }
+74: body, button, p, div { font-family: Arial, "Liberation Sans", "DejaVu Sans", sans-serif; }
+75: body { background-image: url("/content/images/clouds.gif"), url("/content/images/mountains.gif"), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAJtCAIAAAB43o3WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjkwRUIzNkRCMzZDMzExRTFBOTFGRTQwODREOTJGMjFGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjkwRUIzNkRDMzZDMzExRTFBOTFGRTQwODREOTJGMjFGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTBFQjM2RDkzNkMzMTFFMUE5MUZFNDA4NEQ5MkYyMUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTBFQjM2REEzNkMzMTFFMUE5MUZFNDA4NEQ5MkYyMUYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6KvwHoAAAB60lEQVR42uxWS3LFIAyzuP8xe4CuukTFP7BJ3gE602kzCWDLkg34ydf3z4DIIGSAMmR9r88hmEPmGuufziMeQhfXPwcl7HNdccw/bf2N5SOi9st3jUmuN9aYFnfoOo4vlx/WOhJ/2U1RUmpKm8fCIhfHsDOf4fzUZoE5HlyPc53mp9yV8xSPIxFHMr47mI/yFLpP1ae4M7WqGWkaTe/GC2zkmDZnHOTgjbTVGDzfMA6wWJtjqRNLLBQNDjmPnoiX2hWfl0+r2Y4F14XUwpYr5+l8GHy35qLbMWDY3PY35//nbzx8zvHdlm+2HzERexYbD3E+qt09p+PZuPAFN7/Z9+dDB/c5mXHGufEKv3LvseWE/dwLO3/evPjCs+AwOVTNXcfOBz/MB+fGs+UIH2rLVgvXcvvlfRr3b9zDNq/3O6XdczXPiLi8clo5ON6px9EuLa5wFk5uz+A2qz1PPDz2KB91Sn8UO+sX9FxoX2PB95h+b+rcLPvJY/PqNXkXF82B7zGy3wR29iqWXhS4z3ORew973b5ZcggfN03l7t+1J0ses692rHoetgZ0rvWdtX3ozpru/GQ+ozcmV16aN5++jxA9reUmfpe0+Bc/id8TpFz97JzNowWXFtn1Q7sPa/4ujDLG1Ycbd8ivAAMAo7wtiIhWMPAAAAAASUVORK5CYII="); background-repeat: no-repeat, no-repeat, repeat-x; background-position: center 0px, center bottom, 0px 0px; background-color: rgb(237, 228, 206); color: rgb(0, 0, 0); font-size: 80%; text-align: left; width: 100%; border-bottom: 130px solid rgb(216, 206, 180); }
+76: body { overflow: auto !important; margin: 0px !important; }
+77: iframe { overflow: hidden; }
+78: p { line-height: 19px; }
+79: form.flag label { padding-left: 20px; display: inline-block; line-height: 15px; }
+80: form.flag input { margin-left: -20px; margin-top: -3px; }
+81: #content, header, footer { margin: 0px auto; width: 970px; }
+82: #content { clear: both; min-height: 700px; }
+83: header { height: 120px; }
+84: .sustain { border-bottom: 1px solid rgb(206, 196, 172); border-radius: 4px; padding: 13px; margin: 60px -13px; line-height: 24px; }
+85: .sustain a { font-weight: bold; }
+86: footer { background: rgb(206, 196, 172); height: 39px; clear: both; border-radius: 4px; margin: 200px auto -110px; padding: 13px; font-size: 12px; }
+87: footer .right { text-align: right; }
+88: .version { font-size: 10px; color: rgb(102, 102, 102); }
+89: .copyright { padding-bottom: 8px; font-size: 14px; }
+90: .twitter { background-image: url("data:image/png;base64,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"); background-position: -25px 0px; background-repeat: no-repeat; font-weight: bold; height: 15px; }
+91: .twitter a { padding-left: 23px; }
+92: .rendertime { float: left; margin-top: -16px; margin-left: 70px; color: rgb(237, 228, 206); }
+93: #columns { display: inline-block; }
+94: #left, #left-wide { float: left; margin-right: 20px; }
+95: #left { width: 638px; }
+96: .reversed #left { width: 220px; }
+97: #left-wide { width: 738px; }
+98: #right, #right-slim { float: left; }
+99: .reversed #right { width: 730px; }
+100: .reversed #right .box { margin: 0px; }
+101: #right { width: 302px; }
+102: #right-slim { width: 212px; }
+103: h1, h2, h3, .h2 { font-family: "Century Gothic", Arial; color: rgb(33, 73, 95); }
+104: h1 { font-size: 25px; padding-bottom: 6px; }
+105: h2, .h2 { font-size: 22px; padding-bottom: 6px; }
+106: h3 { font-size: 16px; }
+107: a, a:link { color: rgb(29, 73, 96); text-decoration: none; cursor: pointer; }
+108: a:visited { color: rgb(0, 89, 158); }
+109: a:hover { color: rgb(0, 144, 255); }
+110: .button { line-height: 28px; height: 28px; }
+111: input[type="submit"], input[type="button"], button, .button { cursor: pointer; }
+112: button:hover, .button:hover { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(42, 113, 153)), to(rgb(29, 66, 87))); }
+113: button:active { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(29, 66, 87)), to(rgb(35, 93, 126))); }
+114: button, .button { font-size: 14px; color: rgb(255, 255, 255); padding: 6px 10px; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(35, 93, 126)), to(rgb(29, 66, 87))); border-radius: 3px; border: 0px; box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 1px, rgba(255, 255, 255, 0) 0px 0px 0px inset; }
+115: .align-right { text-align: right; }
+116: .float-right { float: right; }
+117: .align-left { text-align: left; }
+118: p { margin: 14px 0px 0px; }
+119: nav { height: 14px; line-height: 14px; }
+120: nav.main { font-size: 16px; float: left; padding: 26px 0px 0px 20px; }
+121: nav.main .selected { font-weight: bold; }
+122: nav > ul > li, .delimited > li { display: inline-block; }
+123: nav.inline { display: inline-block; }
+124: #logo { float: left; padding-top: 19px; }
+125: #logo em { background: url("/content/images/logo.gif") 0px 0px no-repeat scroll transparent; display: block; width: 149px; height: 86px; line-height: 1000px; margin: 0px; outline: none 0px; overflow: hidden; }
+126: #user-navigation, #forum-navigation, #admin-navigation { float: right; background: rgb(213, 227, 234); line-height: 26px; height: 30px; padding: 0px 11px; border-radius: 0px 0px 4px 4px; }
+127: nav li, .delimited li { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAOCAYAAAAFdM1fAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjEwMDIwMkVDNDI3RTExRTE4QzExREY0QjUwQzYyMzMwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjEwMDIwMkVENDI3RTExRTE4QzExREY0QjUwQzYyMzMwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTAwMjAyRUE0MjdFMTFFMThDMTFERjRCNTBDNjIzMzAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTAwMjAyRUI0MjdFMTFFMThDMTFERjRCNTBDNjIzMzAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4RxyKgAAAAHUlEQVR42mJkYGD4D8QMjHDG//9gGolBMzUAAQYAlPIZ9a9LVe0AAAAASUVORK5CYII=") right center no-repeat; padding: 0px 9px 0px 3px; }
+128: nav li:last-child, .delimited li:last-child { padding-right: 0px; background: none; }
+129: #forum-navigation { background: rgb(237, 228, 206); margin: 0px 0px 0px 10px; }
+130: #admin-navigation { background: rgb(255, 255, 255); margin: 0px 10px 0px 0px; }
+131: .user-home .role { float: left; }
+132: @media only screen and (min-width: 1400px) {   #sidebar-left { position: fixed; left: 20px; top: 100px; bottom: 0px; overflow: hidden; } }
+133: @media only screen and (max-width: 1400px) {   #sidebar-left { display: none; } }
+134: @media only screen and (min-width: 1370px) {   #sidebar { position: fixed; right: 30px; top: 60px; bottom: 0px; overflow: hidden; } }
+135: @media only screen and (max-width: 1370px) {   #sidebar { display: none; } }
+136: .role { height: 17px; line-height: 17px; background-position: 0px 0px; background-repeat: no-repeat; padding-left: 22px; }
+137: .role.subscene-supporter { background-image: url("/content/images/role-icon-supporter.gif"); }
+138: #downloading .banner { border: 0px; margin-top: 18px; }
+139: #downloading .subtle { font-size: 10px; margin-top: 6px; padding: 5px 0px; }
+140: .subtitle .pending p { font-size: 14px; line-height: 18px; font-weight: bold; color: rgb(92, 159, 69); }
+141: .subtitles .header .description { padding-top: 10px; border-top: 1px solid rgb(206, 196, 172); }
+142: .flagContainer { width: 616px; }
+143: .subtitle .download { padding-bottom: 1px; }
+144: .subtitles td.banner-inlist { white-space: normal; }
+145: .banner-inlist .banner { padding: 16px 0px 10px; }
+146: .banner > .size728 { padding: 5px 0px 15px; }
+147: .banner > .foot { height: 16px; line-height: 16px; font-size: 10px; text-align: center; }
+148: .banner.size250 { height: 266px; width: 300px; }
+149: .banner.size728 { background: rgb(248, 241, 223); height: 120px; width: 958px; text-align: center; padding-top: 14px; }
+150: .banner.size728 > .foot { text-align: right; padding-right: 120px; }
+151: .bottom .banner { border: 0px; margin-top: 50px; }
+152: .bottom .banner .size728 { }
+153: .banner-ontop { padding: 0px 0px 14px; }
+154: @media (max-width: 600px) {   #zergnet-widget-43083 .zergheadline a { line-height: 24px; font-size: 26px !important; } }
+155: .box { border-top: 1px solid rgb(29, 73, 96); padding: 11px 0px; text-align: left; }
+156: .content { border-top: 1px solid rgb(255, 255, 255); padding: 14px 0px 22px; }
+157: .field-validation-error { color: rgb(233, 54, 54); }
+158: .bread { font-size: 14px; font-weight: bold; padding: 4px; }
+159: .bread a, .bread a:visited { color: rgb(0, 0, 0); }
+160: .poster { min-width: 106px; min-height: 132px; background: rgb(255, 255, 255); border: 1px solid rgb(211, 221, 226); }
+161: .poster a { min-width: 106px; min-height: 132px; display: block; }
+162: #search { float: left; margin: 22px 10px 0px 23px; position: relative; }
+163: #search .text { border-style: solid; border-width: 1px; border-color: rgb(138, 138, 138) rgb(194, 198, 200) rgb(194, 198, 200) rgb(138, 138, 138); border-radius: 4px; width: 450px; height: 18px; padding: 6px 0px 4px 4px; margin-right: 6px; margin-top: -2px; font-size: 15px; }
+164: #search .button { margin-top: 1px; }
+165: #search .filter { position: absolute; top: 37px; left: 156px; width: 300px; text-align: right; display: block; content: ""; }
+166: #search .filter li { display: inline-block; }
+167: #search .filter .hi { margin-left: 4px; padding-left: 15px; padding-right: 4px; background: url("/content/images/icon-hearing-impaired.png") 0px 0px no-repeat; color: rgb(85, 85, 85) !important; }
+168: .alternativeSearch { padding: 32px 12px; }
+169: .allLanguages { padding: 32px 0px; }
+170: #right .box { margin-top: 31px; }
+171: .validation-summary-errors { font-size: 18px; font-family: "Century Gothic", Arial; padding-top: 6px; color: red; font-weight: bold; }
+172: .r { background-position: 4px 4px; background-repeat: no-repeat; padding-left: 22px; }
+173: .r.positive-icon { background-image: url("/content/images/icon-rating-positive.png"); }
+174: .r.neutral-icon { background-image: url("/content/images/icon-rating-neutral.png"); }
+175: .r.bad-icon { background-image: url("/content/images/icon-rating-negative.png"); }
+176: .subtitles .new { font-weight: bold; }
+177: .subtitles nav, .subtitles nav ul { display: inline; font-size: 14px; margin-left: 12px; font-weight: normal; }
+178: .subtitles nav ul li.selected { font-weight: bold; }
+179: .subtitles .episodes-nav nav, .subtitles .episodes-nav nav ul { margin-left: 0px; }
+180: .episodes-nav .positive { font-size: 18px; font-weight: bold; font-family: "Century Gothic", Arial; }
+181: .episodes-nav .pagination { margin: 0px; }
+182: .subtitles .pagination { margin-top: 10px; }
+183: .subtitles .orderBy nav ul { font-size: 16px; }
+184: h3.ready, h3.pending, h3.deleted { font-size: 18px; padding-left: 22px; }
+185: h3.ready { background: url("/content/images/icon-rating-positive-big.png") 0px 7px no-repeat scroll transparent; }
+186: h3.ready, h3.ready a { color: rgb(92, 159, 69); }
+187: h3.pending { background: url("/content/images/icon-rating-neutral-big.png") 0px 7px no-repeat scroll transparent; }
+188: h3.pending, h3.pending a { color: rgb(89, 89, 88); }
+189: h3.deleted { background: url("/content/images/icon-rating-negative-big.png") 0px 7px no-repeat scroll transparent; }
+190: h3.deleted, h3.deleted a { color: rgb(233, 54, 54); }
+191: .recent-subtitles h3 { float: right; line-height: 22px; height: 22px; }
+192: .recent-subtitles li { height: 18px; line-height: 18px; }
+193: .recent-subtitles .name { overflow: hidden; white-space: nowrap; width: 400px; }
+194: .recent-subtitles address { float: right; font-style: normal; }
+195: .recent-downloads { overflow: hidden; }
+196: .recent-subtitles .language, .recent-downloads .language { padding: 0px 0px 0px 16px; }
+197: .recent-downloads .name { line-height: 16px; }
+198: .recent-downloads .content > ul > li { margin-bottom: 22px; }
+199: .recent-downloads nav.rate li:first-child { padding-left: 0px; }
+200: .recent-downloads .rated { padding-top: 4px; }
+201: .recent-downloads .undo { font-size: 10px; }
+202: .recent-downloads .r, .recent-subtitles .r { background-position: 0px 4px; }
+203: .recent-downloads .loading { line-height: 18px; }
+204: .language-filter .hi { padding-left: 16px; background: url("/content/images/icon-hearing-impaired.png") 0px 3px no-repeat; color: rgb(85, 85, 85) !important; }
+205: .byTitle .box { padding: 0px; }
+206: .byTitle h2 { margin: 12px 0px 8px; color: rgb(255, 255, 255); font-weight: bold; height: 26px; line-height: 26px; padding: 3px 6px 6px 12px; }
+207: .byTitle ul { padding: 0px 0px 6px; }
+208: .byTitle li { box-sizing: border-box; margin: 5px 0px; min-height: 60px; overflow: hidden; padding-left: 5px; font-size: 12px; }
+209: .byTitle .count { padding: 0px 0px 0px 8px; }
+210: .byTitle .search-result { background-color: rgb(237, 228, 206); border-radius: 4px; margin-top: 8px; padding: 1px 5px; }
+211: .byTitle .search-result .title { font-weight: normal; font-size: 18px; padding: 6px 0px 6px 6px; }
+212: li .title { font-size: 14px; font-weight: bold; padding: 0px 0px 6px; }
+213: .most-popular li { line-height: 18px; }
+214: .most-popular .content { border: 0px; overflow-wrap: break-word; width: 300px; }
+215: .byFilm .sort-by { float: right; font-size: 13px; height: 30px; line-height: 30px; background-color: rgb(237, 228, 206); border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; color: rgb(29, 73, 96); padding: 0px 8px 0px 6px; border-radius: 4px 4px 0px 0px; }
+216: .byFilm .sort-by label:hover, .byFilm .sort-by input:hover { cursor: pointer; }
+217: .subtitles table { background-color: rgb(237, 228, 206); width: 100%; }
+218: .subtitles tbody { padding-bottom: 12px; }
+219: .subtitles td a { color: rgb(0, 0, 0); outline: none 0px; }
+220: .subtitles td { overflow: hidden; white-space: nowrap; height: 25px; line-height: 25px; }
+221: .subtitles.byReleaseName td.language, .subtitles.byReleaseName td.a1, .subtitles.byReleaseName td.a1 a:link { width: 600px; }
+222: .subtitles td.a1 a:link { display: block; background-color: rgb(237, 228, 206); }
+223: .subtitles td.a1 a:hover { background-color: rgb(251, 242, 219); cursor: pointer; }
+224: .subtitles td.a1 a:visited, .subtitles td.a1 .visited { background-color: rgb(251, 242, 219); }
+225: .subtitles td.a1 span, .subtitles td.a5, .subtitles td.comment, .subtitles td.a6 div { overflow: hidden; white-space: nowrap; display: block; }
+226: .subtitles td.a1 span { }
+227: .subtitles td.a1 span.l { width: 100px; float: left; margin-right: 4px; padding-left: 22px; }
+228: .subtitles .r { background-position: 4px 8px; }
+229: .subtitles td.files, .subtitles td.a3 { width: 30px; padding-left: 4px; }
+230: .subtitles td.ear, .subtitles td.a4 { width: 30px; }
+231: .subtitles td.a41 { background: url("/content/images/icon-hearing-impaired.png") 0px 5px no-repeat; }
+232: .subtitles td.owner, .subtitles td.a5 { width: 109px; }
+233: .subtitles td.comment, .subtitles td.a6 div { width: 203px; }
+234: .subtitles.index td.a6 div { width: 90px; }
+235: .subtitles.byFilm td.language, .subtitles.byFilm td.a1, .subtitles.byFilm td.a1 a:link, .subtitles.index td.language, .subtitles.index td.a1, .subtitles.index td.a1 a:link { width: 575px; }
+236: .subtitles td.type, .subtitles.byFilm td.a3 { padding-left: 4px; width: 45px; }
+237: .negative, a.negative, .bad { color: rgb(233, 54, 54); }
+238: .positive { color: rgb(92, 159, 69); }
+239: .byFilm .details nav { display: inline-block; }
+240: .byFilm .details ol > li { display: inline-block; }
+241: .byFilm .details ol > li > a { padding: 0px 4px; }
+242: .byFilm .rating-guide { margin-bottom: 5px; }
+243: .byFilm .rating-guide li:first-child { padding-left: 0px; }
+244: .byFilm .rating-guide .positive, .byFilm .rating-guide .neutral { font-size: 18px; font-weight: bold; color: rgb(92, 159, 69); padding-left: 24px; font-family: "Century Gothic", Arial; background: url("/content/images/icon-rating-positive-big.png") 0px 5px no-repeat; }
+245: .byFilm .rating-guide .neutral { color: rgb(89, 89, 88); background: url("/content/images/icon-rating-neutral-big.png") 0px 5px no-repeat; }
+246: .byFilm .rating-guide li.visited { margin-top: 1px; }
+247: .byFilm .rating-guide span.visited { background: rgb(251, 249, 244); padding: 3px 18px; line-height: 21px; height: 21px; border: 2px solid rgb(237, 228, 206); }
+248: .byFilm .rating-guide .downloaded { line-height: 21px; height: 21px; background: rgb(201, 210, 173); padding: 3px 14px 2px; }
+249: .subtitles thead { background: rgb(145, 170, 183); color: rgb(255, 255, 255); height: 21px; line-height: 21px; }
+250: .subtitles thead, .subtitles td.empty { font-size: 12px; font-weight: bold; font-family: "Century Gothic", Arial; }
+251: .subtitles td.empty { height: 40px; line-height: 40px; padding-left: 11px; display: block; width: 600px; }
+252: .subtitles td.empty a { color: rgb(29, 73, 96); }
+253: .subtitles thead .language { padding-left: 22px; }
+254: .subtitles thead .release-name { padding-left: 41px; }
+255: .byFilm .language-filter { padding-left: 24px; background: url("/content/images/icon-language.png") 0px 1px no-repeat; }
+256: .byFilm .language-filter span { font-size: 18px; font-weight: bold; color: rgb(145, 170, 183); font-family: "Century Gothic", Arial; }
+257: .byFilm .language-filter small { padding-left: 8px; }
+258: .byReleaseName .language-filter, .subtitles .language-filter { padding-bottom: 10px; }
+259: .popular-films ul.details > li { overflow: hidden; padding-bottom: 10px; margin: 0px; }
+260: .popular-films .title { font-size: 16px; }
+261: .popular-films .poster { float: left; overflow: hidden; margin-right: 9px; width: 135px; }
+262: .popular-films .poster img { margin-top: -6px; margin-bottom: -2px; }
+263: .popular-films .language { padding: 0px 0px 0px 18px; background-position: 1px 4px; background-repeat: no-repeat; }
+264: .imdb, .edit { font-size: 10px; }
+265: form.flag > ul > li { padding-bottom: 0px; padding-top: 6px; }
+266: form.flag > input { }
+267: form.flag > h4 { padding-top: 6px; }
+268: .right { float: right; }
+269: .download span { line-height: 30px; }
+270: .subtitle h1 { font-family: Arial; font-weight: bold; font-size: 20px; }
+271: .byFilm .poster-link, .subtitle .poster-link { float: left; max-width: 154px; overflow: hidden; padding-left: 17px; }
+272: .byFilm .poster, .subtitle .poster { float: left; max-width: 154px; overflow: hidden; }
+273: .byFilm .poster img, .subtitle .poster img { margin-bottom: -2px; max-width: 154px; }
+274: .byFilm .language-start, .subtitle .language-start { height: 12px; }
+275: .byFilm .header, .subtitle .header { float: left; width: 480px; padding-left: 11px; overflow-wrap: break-word; }
+276: .byFilm .header { width: 450px; }
+277: .top.left .header ul > li { margin-bottom: 10px; }
+278: .subtitle .details { float: left; width: 648px; padding-left: 0px; overflow-wrap: break-word; }
+279: .byFilm .details li, .subtitle .details > li { line-height: 15px; }
+280: .subtitle .user-rating, .subtitle .user-rating nav { line-height: 30px; height: 30px; margin-top: 2px; }
+281: .subtitle .user-rating nav ul > li { margin-top: 0px; }
+282: .rating-bar { width: 94px; display: inline-block; }
+283: .rating-bar .good, .rating-bar .neutral { border-radius: 2px; float: left; margin-right: 1px; }
+284: .rating-bar .good { width: 8px; height: 8px; background: rgb(94, 158, 73); }
+285: .rating-bar .neutral { width: 6px; height: 6px; background-color: transparent; border: 1px solid rgb(85, 85, 85); }
+286: .bigger .rating-bar { width: 125px; height: 10px; margin-left: 4px; }
+287: .bigger .rating-bar .good, .bigger .rating-bar .neutral { margin-right: 2px; width: 10px; height: 10px; }
+288: .bigger .rating-bar .neutral { width: 8px; height: 8px; }
+289: .smaller .rating-bar { width: 100px; height: 6px; }
+290: .smaller .rating-bar .good, .smaller .rating-bar .neutral { margin-right: 1px; width: 6px; height: 6px; border-radius: 1px; }
+291: .smaller .rating-bar .neutral { width: 4px; height: 4px; }
+292: .ratings ul { background-color: rgb(237, 228, 206); border-radius: 4px; margin-top: 8px; padding: 1px 5px; }
+293: .h2 { padding-left: 4px; }
+294: .ratings ul > li { margin: 5px 0px; background-color: rgb(255, 255, 255); border-bottom: 1px solid rgb(184, 184, 184); border-radius: 5px; line-height: 25px; height: 26px; overflow: hidden; padding-left: 5px; }
+295: .user-ratings .rating-value { display: inline-block; width: 50px; }
+296: .subtitle-ratings .ratings ul ol { width: 400px; }
+297: .ratings ul ol { float: right; width: 200px; padding-left: 4px; }
+298: .ratings ul ol li { margin: 0px; float: left; }
+299: .ratings ul ol li.value { display: inline-block; width: 258px; }
+300: .home #right .box, .user-home #right .box { margin-top: 32px; }
+301: #right .box { margin-top: 22px; }
+302: a.button { color: rgb(255, 255, 255); }
+303: button:hover, button:active, .button:hover, .button:active { }
+304: .button.positive, button.positive { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(94, 158, 73)), to(rgb(60, 109, 43))); }
+305: .button.positive:hover, button.positive:hover { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(122, 205, 95)), to(rgb(60, 109, 43))); }
+306: .button.positive:active, button.positive:active { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(60, 109, 43)), to(rgb(94, 158, 73))); }
+307: button.bad { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(229, 20, 23)), to(rgb(136, 14, 1))); }
+308: .button.neutral, button.neutral { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(109, 109, 109)), to(rgb(80, 80, 80))); }
+309: .button.neutral:hover, button.neutral:hover { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(141, 141, 141)), to(rgb(80, 80, 80))); }
+310: .button.neutral:active, button.neutral:active { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(80, 80, 80)), to(rgb(109, 109, 109))); }
+311: .subtitle .rating { background: rgb(94, 158, 73); float: left; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 3px; color: rgb(255, 255, 255); font-weight: bold; margin: 2px 9px 0px 0px; font-size: 14px; }
+312: .subtitle .rating.bad { background: rgb(191, 6, 3); }
+313: .subtitle .rating.neutral { background: rgb(115, 115, 115); }
+314: .subtitle button { margin: 2px 9px 0px 0px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: rgb(255, 255, 255); padding: 6px 10px; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(94, 158, 73)), to(rgb(60, 109, 43))); border-radius: 4px; border: 0px; box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px, rgba(255, 255, 255, 0.7) 0px 0px 0px inset; }
+315: .subtitle .button { float: left; height: 30px; line-height: 30px; margin: 2px 9px 0px 0px; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: rgb(255, 255, 255); padding: 0px 10px; background: linear-gradient(rgb(94, 158, 73), rgb(60, 109, 43)); border-radius: 4px; border: 0px; box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px, rgba(255, 255, 255, 0.7) 0px 0px 0px inset; zoom: 1; }
+316: button.positive:hover, .subtitle .button:hover { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(122, 205, 95)), to(rgb(60, 109, 43))); }
+317: button.positive:active, .subtitle .button:active { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(60, 109, 43)), to(rgb(94, 158, 73))); }
+318: .subtitle .button.bad { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(229, 20, 23)), to(rgb(136, 14, 1))); }
+319: .subtitle .button.neutral { background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(109, 109, 109)), to(rgb(80, 80, 80))); }
+320: .subtitle .hearing-impaired { background: url("/content/images/icon-hearing-impaired-white.png") 0px 0px no-repeat; width: 14px; height: 13px; display: inline-block; }
+321: .subtitle .comment-wrapper { min-height: 120px; }
+322: .subtitle .comment::before { background: url("/content/images/comment-bubble.png") left top no-repeat transparent; display: block; height: 27px; width: 27px; left: 10px; top: -20px; position: absolute; content: ""; }
+323: .release { margin: 0px 0px 14px; line-height: 16px; }
+324: .details .window, .preview .window { width: 590px; }
+325: .subtitle .comment { box-shadow: rgb(217, 206, 180) 1px 2px 5px inset; padding: 11px 9px; color: rgb(0, 0, 0); min-height: 40px; position: relative; background: rgb(248, 241, 223); margin: 28px 0px 8px; line-height: 16px; }
+326: .subtitle .comment-sub { text-align: right; }
+327: .subtitle .top.left { min-height: 270px; }
+328: .window { background: rgb(250, 247, 241); border-top: 1px solid rgb(255, 255, 255); padding: 11px 13px; margin: 0px 0px 13px; clear: both; }
+329: .subtitle #preview p { margin: 9px 0px; line-height: 16px; }
+330: .subtitle #details ul { margin: 9px 0px; }
+331: .subtitle .author { font-size: 16px; }
+332: div.close { float: right; height: 18px; }
+333: .close a { background: url("/content/images/icon-close.png") right 0px no-repeat; padding-right: 18px; }
+334: .subtitle .rating-head { font-size: 10px; }
+335: .commentsContainer { width: 647px; }
+336: .posts h3 { margin-bottom: 14px; }
+337: .posts ul > li { overflow: hidden; padding-bottom: 18px; }
+338: .posts .avatar { float: left; width: 79px; height: 79px; clear: left; }
+339: .posts .author { font-size: 16px; padding-bottom: 8px; }
+340: .posts .date { float: right; }
+341: .posts .right { text-align: right; }
+342: .posts .reply { }
+343: .posts .edit { font-size: 14px; }
+344: .posts .links { float: right; list-style: none; }
+345: .posts .links li { display: inline; padding-right: 10px; }
+346: .posts .post::before { background: url("/content/images/post-bubble.png") left top no-repeat transparent; display: block; height: 24px; left: -21px; position: absolute; top: 52px; width: 34px; content: ""; }
+347: .posts .post { float: right; width: 500px; margin-right: 0px; box-shadow: rgb(198, 188, 164) 1px 2px 5px inset; padding: 8px 11px; color: rgb(0, 0, 0); min-height: 80px; background: rgb(219, 208, 182); position: relative; overflow-wrap: break-word; }
+348: .posts .post-body { overflow: auto; }
+349: .user-posts .post::before { background: none; }
+350: .user-posts .post { float: left; }
+351: .user-posts blockquote h3 { }
+352: blockquote { background: url("/content/images/icon_quote.gif") left top no-repeat scroll transparent; font-style: italic; padding: 12px 0px 0px 3em; }
+353: .pagination { text-align: right; padding: 0px; margin: 0px 0px 13px; clear: both; font-size: 14px; font-weight: bold; }
+354: .pagination > li > a, .pagination > li > span { background: rgb(250, 247, 241); }
+355: .pagination ul > li { display: inline-block; padding: 0px 8px; }
+356: .pagination .previous { margin-right: 8px; }
+357: .pagination .next { margin-left: 8px; }
+358: .pagination .disabled a { display: none; }
+359: .pagination .next.disabled a { display: block; cursor: default; color: rgb(204, 204, 204); }
+360: .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus { color: rgb(255, 255, 255); background-color: rgb(0, 144, 255); border: 1px solid rgb(221, 221, 221); }
+361: .user-home .rating { font-weight: bold; color: rgb(51, 51, 51); }
+362: .subtle { color: rgb(153, 153, 153); font-weight: normal; }
+363: .subtitles div.subtle { display: inline; }
+364: .user-home .avatar { float: left; margin: 0px 13px 3px 0px; border: 1px solid rgb(211, 221, 226); min-height: 80px; min-width: 80px; text-align: center; }
+365: .user-home .subtitles h2 { margin-left: 4px; font-weight: normal; }
+366: .user-home .subtitles .list { background-color: rgb(243, 237, 220); border-radius: 4px; margin-top: 6px; padding: 1px 3px; width: 532px; }
+367: .user-home .subtitles ul > li, .user-home .footer { float: left; text-align: center; margin: 4px 3px 0px 4px; padding-bottom: 5px; height: 300px; padding-top: 1px; background-color: rgb(255, 255, 255); border-bottom: 1px solid rgb(168, 168, 168); border-radius: 5px; box-sizing: border-box; width: 170px; position: relative; }
+368: .user-home .footer { height: 36px; width: 524px; padding: 12px; margin-bottom: 6px; }
+369: .user-home .subtitles .r { background-position: 1px 4px; padding: 0px 0px 0px 18px; }
+370: .user-home .subtitles .right { padding: 0px 96px 0px 0px; line-height: 36px; color: rgb(85, 85, 85); }
+371: .user-home .ratings { font-size: 13px; }
+372: .user-home .subtitles li .poster { position: relative; overflow: hidden; border: none; background: none; margin: 8px 8px 12px; height: 220px; }
+373: .user-home .subtitles li .poster img { max-height: 220px; max-width: 163px; }
+374: .user-subtitles .subtitles .language, .user-subtitles .subtitles .a1 a { width: 515px; }
+375: .user-subtitles td.comment { width: 60px; }
+376: .user-subtitles td.a6 div { width: 75px; }
+377: .recent-posts li { line-height: 18px; }
+378: .edit-filter #columns { margin-top: 36px; }
+379: .edit-filter #left { width: 180px; }
+380: .edit-filter #right { width: 220px; }
+381: .edit-filter .save { float: left; width: 180px; }
+382: .sentence { float: right; width: 300px; overflow: hidden; display: block; padding-bottom: 10px; }
+383: .sentence button { font-weight: normal; font-size: 11px; padding: 4px 6px; }
+384: .sentence input { width: 220px; }
+385: .sentence .text { color: green; padding-bottom: 3px; }
+386: .legal h3 { margin-top: 34px; }
+387: .badge { display: inline-block; min-width: 10px; padding: 3px 7px; font-size: 12px; font-weight: bold; line-height: 1; color: rgb(255, 255, 255); text-align: center; white-space: nowrap; vertical-align: middle; background-color: rgb(119, 119, 119); border-radius: 10px; }
+388: .badge:empty { display: none; }
+389: #messageCount.badge { min-width: 20px; background-color: rgb(255, 255, 255); }
+390: #messageCount.badge.badge-new { background-color: rgb(51, 122, 183); }
+391: .alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; }
+392: .alert h4 { margin-top: 0px; color: inherit; }
+393: .alert .alert-link { font-weight: bold; }
+394: .alert > p, .alert > ul { margin-bottom: 0px; }
+395: .alert > p + p { margin-top: 5px; }
+396: .alert-dismissable { padding-right: 35px; }
+397: .alert-dismissable .close { position: relative; top: -2px; right: -21px; color: inherit; }
+398: .alert-success { background-color: rgb(223, 240, 216); border-color: rgb(214, 233, 198); color: rgb(60, 118, 61); }
+399: .alert-success hr { border-top-color: rgb(201, 226, 179); }
+400: .alert-success .alert-link { color: rgb(43, 84, 44); }
+401: .alert-info { background-color: rgb(217, 237, 247); border-color: rgb(188, 232, 241); color: rgb(49, 112, 143); }
+402: .alert-info hr { border-top-color: rgb(166, 225, 236); }
+403: .alert-info .alert-link { color: rgb(36, 82, 105); }
+404: .alert-warning { background-color: rgb(252, 248, 227); border-color: rgb(250, 235, 204); color: rgb(138, 109, 59); }
+405: .alert-warning hr { border-top-color: rgb(247, 225, 181); }
+406: .alert-warning .alert-link { color: rgb(102, 81, 44); }
+407: .alert-danger { background-color: rgb(242, 222, 222); border-color: rgb(235, 204, 209); color: rgb(169, 68, 66); }
+408: .alert-danger hr { border-top-color: rgb(228, 185, 192); }
+409: .alert-danger .alert-link { color: rgb(132, 53, 52); }
+
+//-----------------------------------------------------------------------------
+
+0: body { background-image: none; background-color: rgb(17, 17, 17); color: rgb(170, 170, 170); border-bottom: 130px solid rgb(17, 17, 17); }
+1: #logo em { background: url("/content/images/logo-dark.gif") 0px 0px no-repeat scroll transparent; }
+2: #search .text { border-color: rgb(34, 38, 40) rgb(51, 51, 51); background-color: rgb(0, 0, 0); color: rgb(238, 238, 238); }
+3: #user-navigation, #forum-navigation, #admin-navigation { background: rgb(0, 0, 0); }
+4: hr { border-top: 1px solid rgb(68, 68, 68); }
+5: .poster { min-width: 106px; min-height: 132px; background: rgb(0, 0, 0); border: 1px solid rgb(34, 34, 34); }
+6: .content { border-top: 0px; }
+7: .subtitles table { background-color: rgb(0, 0, 0); width: 100%; }
+8: .subtitles thead { background: rgb(0, 0, 0); color: rgb(238, 238, 238); }
+9: .subtitles td.a1 a:visited, .subtitles td.a1 .visited { background-color: rgb(51, 51, 51); color: rgb(153, 153, 153); }
+10: .subtitles td.a1 a:link { display: block; background-color: rgb(0, 0, 0); color: rgb(153, 153, 153); }
+11: .subtitles td.a1 a:hover { background-color: rgb(51, 51, 51); cursor: pointer; }
+12: .byFilm .rating-guide span.visited { background: rgb(51, 51, 51); border: 2px solid rgb(0, 0, 0); }
+13: .byFilm .sort-by { background-color: rgb(51, 51, 51); border: 1px solid rgb(0, 0, 0); color: rgb(153, 153, 153); }
+14: .subtitle .comment { box-shadow: rgb(51, 51, 51) -1px -2px 5px inset; background: rgb(0, 0, 0); color: rgb(204, 204, 204); }
+15: .subtitle .comment::before { background: none; }
+16: .subtitles td a { color: rgb(0, 89, 158); }
+17: .subtitles td a:hover { color: rgb(0, 144, 255); }
+18: .subtitles td.a41 { background: url("/content/images/icon-hearing-impaired-dark.png") 0px 5px no-repeat; }
+19: .window { background: rgb(6, 36, 51); border-top: 1px solid rgb(51, 51, 51); }
+20: .bread a, .bread a:visited { color: rgb(0, 89, 158); }
+21: a, a:link { color: rgb(0, 89, 158); text-decoration: none; cursor: pointer; }
+22: a:visited { color: rgb(0, 89, 158); }
+23: a:hover { color: rgb(0, 144, 255); }
+24: .pagination > li > a, .pagination > li > span { background-color: rgb(0, 0, 0); border: 1px solid rgb(68, 68, 68); }
+25: .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover { background-color: rgb(0, 0, 0); border-color: rgb(68, 68, 68); color: rgb(119, 119, 119); }
+26: .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus { background-color: rgb(68, 68, 68); }
+27: .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus { color: rgb(222, 222, 222); background-color: rgb(0, 0, 0); }
+28: .btn-default { color: rgb(51, 51, 51); background-color: rgb(170, 170, 170); border-color: rgb(85, 85, 85); }
+29: .btn-default:hover { background-color: rgb(230, 230, 230); border-color: rgb(0, 0, 0); }
+30: .dropdown-menu { background-color: rgb(170, 170, 170); border: 1px solid rgba(0, 0, 0, 0.15); }
+31: .nav > li > a:hover, .nav > li > a:focus { background-color: rgb(51, 51, 51); }
+32: .panel-default { border-color: rgb(221, 221, 221); }
+33: .panel { background-color: rgb(0, 0, 0); border: 1px solid rgb(51, 51, 51); box-shadow: none; }
+34: .form-control { color: rgb(222, 222, 222); background-color: rgb(0, 0, 0); border: 1px solid rgb(68, 68, 68); }
+35: .sand-box { background-color: rgb(0, 0, 0); }
+36: .sand-box > ul > li, .sand-box .area { background-color: rgb(34, 34, 34); border-bottom: 1px solid rgb(0, 0, 0); }
+37: #messageCount.badge { background-color: rgb(0, 0, 0); }
+38: .my-recent-messages { background-color: rgb(0, 0, 0); }
+39: .message-view { background-color: rgb(0, 0, 0); }
+40: .message-view .list-group-item-sender { background-color: rgb(34, 34, 34); }
+41: .list-group-item { background-color: rgb(0, 0, 0); border: 1px solid rgb(68, 68, 68); }
+42: .ratings ul { background-color: rgb(0, 0, 0); }
+43: .ratings ul > li { background-color: rgb(34, 34, 34); border-bottom: 1px solid rgb(0, 0, 0); }
+44: .user-home .subtitles .list { background-color: rgb(0, 0, 0); }
+45: .user-home .subtitles ul > li, .user-home .footer { background-color: rgb(34, 34, 34); border-bottom: 1px solid rgb(0, 0, 0); }
+46: .posts .post { box-shadow: none; border: 1px solid rgb(51, 51, 51); color: rgb(222, 222, 222); background: rgb(0, 0, 0); }
+47: .posts .post::before { background: none; }
+48: footer { background: rgb(0, 0, 0); }
+49: .sustain { border-bottom: 1px solid rgb(68, 68, 68); }
+
+//-----------------------------------------------------------------------------
+

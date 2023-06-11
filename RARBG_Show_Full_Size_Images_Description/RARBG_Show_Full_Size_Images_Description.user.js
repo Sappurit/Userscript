@@ -52,7 +52,7 @@
     clipboardCopy.style.color = torrentStyle.color;
     clipboardCopy.style.textDecoration = 'none';
     clipboardCopy.addEventListener('click', copyText, false);
-    magnetElement.after('⏺️  ', clipboardCopy);
+    magnetElement.after('📋 ', clipboardCopy);
     magnetElement.insertAdjacentHTML('afterend', '<br>');
 
     function copyText()
