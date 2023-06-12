@@ -3,7 +3,7 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     8
+// @version     9
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
@@ -97,7 +97,7 @@ function otherPage()
         torrentGalaxyElement.setAttribute('target', '_blank');
         torrentGalaxyElement.setAttribute('class', 'imdb');
         torrentGalaxyElement.setAttribute('href', 'https://torrentgalaxy.to/torrents.php?' + torrentGalaxyCategory + '&search=' + id + '#results');
-        imdbElement.after(' ', torrentGalaxyElement);
+        rarbgElement.after(' ', torrentGalaxyElement);
     }
 }
 
