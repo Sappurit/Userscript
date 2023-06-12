@@ -3,7 +3,7 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     7
+// @version     8
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
@@ -43,12 +43,16 @@ var posterWidth = '120px';
 var posterHeight = '180px';
 
 // Choose RARBG Category filter to display
-// 41 = TV HD Episodes
-// 49 = TV UHD Episodes
-// 44 = x264/1080       50 = x264/4k
-// 54 = x265/1080       51 = x265/4k
-// var rarbgCategory = '41;44;54;50;51';
-var rarbgCategory = '41;44';
+// 41  TV HD          49  TV UHD
+// 44  x264/1080      50  x264/4k
+// 54  x265/1080      51  x265/4k
+var rarbgCategory = 'category=41;44';
+
+// Choose TorrentGalaxy Category filter to display
+// c41=1  TV HD       c11=1  TV UHD
+// c42=1  Movie HD    c3=1   Movie UHD
+// c35=1  XXX HD
+var torrentGalaxyCategory = 'c41=1&c42=1';
 
 //---------------------------------------------------------------------
 
@@ -79,14 +83,21 @@ function otherPage()
         let imdbElement = elements[i];
         imdbElement.innerText = 'IMDB';
 
-        let	id = imdbElement.href.match(/tt\d+/);
+        let id = imdbElement.href.match(/tt\d+/);
 
         let rarbgElement = document.createElement('a');
         rarbgElement.innerText = 'RARBG';
         rarbgElement.setAttribute('target', '_blank');
         rarbgElement.setAttribute('class', 'imdb');
-        rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?category=' + rarbgCategory + '&imdb=' + id);
+        rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?' + rarbgCategory + '&imdb=' + id);
         imdbElement.after(' ', rarbgElement);
+
+        let torrentGalaxyElement = document.createElement('a');
+        torrentGalaxyElement.innerText = 'TG';
+        torrentGalaxyElement.setAttribute('target', '_blank');
+        torrentGalaxyElement.setAttribute('class', 'imdb');
+        torrentGalaxyElement.setAttribute('href', 'https://torrentgalaxy.to/torrents.php?' + torrentGalaxyCategory + '&search=' + id + '#results');
+        imdbElement.after(' ', torrentGalaxyElement);
     }
 }
 
@@ -207,14 +218,21 @@ function browsePage()
                     imdbElement.innerText = 'IMDB';
                     visitedElement.children[1].append(' · ', imdbElement);
 
-                    let	id = imdbElement.href.match(/tt\d+/);
+                    let id = imdbElement.href.match(/tt\d+/);
 
                     let rarbgElement = document.createElement('a');
                     rarbgElement.innerText = 'RARBG';
                     rarbgElement.setAttribute('target', '_blank');
                     rarbgElement.setAttribute('class', 'imdb');
-                    rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?category=' + rarbgCategory + '&imdb=' + id);
+                    rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?' + rarbgCategory + '&imdb=' + id);
                     visitedElement.children[1].append(' · ', rarbgElement);
+
+                    let torrentGalaxyElement = document.createElement('a');
+                    torrentGalaxyElement.innerText = 'TG';
+                    torrentGalaxyElement.setAttribute('target', '_blank');
+                    torrentGalaxyElement.setAttribute('class', 'imdb');
+                    torrentGalaxyElement.setAttribute('href', 'https://torrentgalaxy.to/torrents.php?' + torrentGalaxyCategory + '&search=' + id + '#results');
+                    visitedElement.children[1].append(' · ', torrentGalaxyElement);
                 }
 
                 //---------------------------------------------------------------------
