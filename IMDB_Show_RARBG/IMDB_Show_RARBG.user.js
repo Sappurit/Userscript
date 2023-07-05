@@ -3,7 +3,7 @@
 // @namespace   IMDB_Show_RARBG
 // @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080 and TV HD Series.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
-// @version     9
+// @version     10
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
@@ -19,6 +19,8 @@
 
     let targetElement = document.querySelector('h1[data-testid="hero__pageTitle"] + ul[role="presentation"][class^="ipc-inline-list ipc-inline-list--show-dividers"]');
 
+    //-----------------------------------------------------
+
     let subsceneLi = document.createElement('li');
     subsceneLi.setAttribute('role', 'presentation');
     subsceneLi.setAttribute('class', 'ipc-inline-list__item');
@@ -28,6 +30,10 @@
     subsceneAnchor.setAttribute('class', 'ipc-link ipc-link--baseAlt ipc-link--inherit-color');
     subsceneAnchor.setAttribute('href', 'https://subscene.com/subtitles/searchbytitle?query=' + title);
     subsceneAnchor.innerText = 'SUBSCENE';
+
+    subsceneLi.append(subsceneAnchor);
+
+    //-----------------------------------------------------
 
     let rarbgLi = document.createElement('li');
     rarbgLi.setAttribute('role', 'presentation');
@@ -45,15 +51,42 @@
 //  44 = x264/1080       50 = x264/4k
 //  54 = x265/1080       51 = x265/4k
 
-    subsceneLi.append(subsceneAnchor);
     rarbgLi.append(rarbgAnchor);
+
+    //-----------------------------------------------------
+
+    let ytsLi = document.createElement('li');
+    ytsLi.setAttribute('role', 'presentation');
+    ytsLi.setAttribute('class', 'ipc-inline-list__item');
+
+    let ytsAnchor = document.createElement('a');
+    ytsAnchor.setAttribute('target', '_blank');
+    ytsAnchor.setAttribute('class', 'ipc-link ipc-link--baseAlt ipc-link--inherit-color');
+    ytsAnchor.setAttribute('href', 'https://yts.mx/browse-movies/' + id);
+    ytsAnchor.innerText = 'YTS';
+
+    ytsLi.append(ytsAnchor);
+
+    //-----------------------------------------------------
+
+    let torrentgalaxyLi = document.createElement('li');
+    torrentgalaxyLi.setAttribute('role', 'presentation');
+    torrentgalaxyLi.setAttribute('class', 'ipc-inline-list__item');
+
+    let torrentgalaxyAnchor = document.createElement('a');
+    torrentgalaxyAnchor.setAttribute('target', '_blank');
+    torrentgalaxyAnchor.setAttribute('class', 'ipc-link ipc-link--baseAlt ipc-link--inherit-color');
+    torrentgalaxyAnchor.setAttribute('href', 'https://torrentgalaxy.to/torrents.php?c41=1&c42=1&search=' + id + '#results');
+    torrentgalaxyAnchor.innerText = 'TG';
+
+    torrentgalaxyLi.append(torrentgalaxyAnchor);
+
+    //-----------------------------------------------------
 
     targetElement.append(subsceneLi);
     targetElement.append(rarbgLi);
-
-//  console.log(targetElement);
-//  console.log(subsceneLi);
-//  console.log(rarbgLi);
+    targetElement.append(ytsLi);
+    targetElement.append(torrentgalaxyLi);
 
 })();
 

@@ -3,7 +3,7 @@
 // @namespace   Subscene_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page. Show extra subtitle download, IMDB and RARBG links. Ability to filter out the annoy titles.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=subscene.com
-// @version     9
+// @version     11
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Subscene_Show_Poster_Plus/Subscene_Show_Poster_Plus.user.js
@@ -33,7 +33,7 @@
 //---------------------------------------------------------------------
 
 // Choose your annoy titles to filter out from the browse page. Eg. Korean, Chinese, Japanese character sets.
-var blockTitle = '(Mobeomtaeksi|[\\p{sc=Hang}\\p{sc=Hani}\\p{sc=Hira}\\p{sc=Kana}]{3})';
+var blockTitle = '(Mobeomtaeksi|[\\p{sc=Hang}\\p{sc=Hani}\\p{sc=Hira}\\p{sc=Kana}]{2})';
 
 // Choose the delay (milisec) between loop while fetch all subtitles data to avoid IP ban.
 var delay = 1000;
@@ -92,12 +92,19 @@ function otherPage()
         rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?' + rarbgCategory + '&imdb=' + id);
         imdbElement.after(' ', rarbgElement);
 
+        let ytsElement = document.createElement('a');
+        ytsElement.innerText = 'YTS';
+        ytsElement.setAttribute('target', '_blank');
+        ytsElement.setAttribute('class', 'imdb');
+        ytsElement.setAttribute('href', 'https://yts.mx/browse-movies/' + id);
+        rarbgElement.after(' ', ytsElement);
+
         let torrentGalaxyElement = document.createElement('a');
         torrentGalaxyElement.innerText = 'TG';
         torrentGalaxyElement.setAttribute('target', '_blank');
         torrentGalaxyElement.setAttribute('class', 'imdb');
         torrentGalaxyElement.setAttribute('href', 'https://torrentgalaxy.to/torrents.php?' + torrentGalaxyCategory + '&search=' + id + '#results');
-        rarbgElement.after(' ', torrentGalaxyElement);
+        ytsElement.after(' ', torrentGalaxyElement);
     }
 }
 
@@ -226,6 +233,13 @@ function browsePage()
                     rarbgElement.setAttribute('class', 'imdb');
                     rarbgElement.setAttribute('href', 'https://rarbgenter.org/torrents.php?' + rarbgCategory + '&imdb=' + id);
                     visitedElement.children[1].append(' · ', rarbgElement);
+
+                    let ytsElement = document.createElement('a');
+                    ytsElement.innerText = 'YTS';
+                    ytsElement.setAttribute('target', '_blank');
+                    ytsElement.setAttribute('class', 'imdb');
+                    ytsElement.setAttribute('href', 'https://yts.mx/browse-movies/' + id);
+                    visitedElement.children[1].append(' · ', ytsElement);
 
                     let torrentGalaxyElement = document.createElement('a');
                     torrentGalaxyElement.innerText = 'TG';
