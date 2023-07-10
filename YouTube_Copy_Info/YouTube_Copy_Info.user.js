@@ -3,7 +3,7 @@
 // @namespace   YouTube_Copy_Info
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     2
+// @version     3
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Show_Poster/YouTube_Copy_Info.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Show_Poster/YouTube_Copy_Info.user.js
@@ -27,7 +27,7 @@ window.addEventListener('load', setTimeout(function() {
         copyInfo.innerText = '📋';
         copyInfo.style.cursor = 'pointer';
         copyInfo.style.textDecoration = 'none';
-        copyInfo.addEventListener('click', function(e){copyText(e, `${title}\n${metadata}\n${link}\n${thumbnail}`)}, false);
+        copyInfo.addEventListener('click', function(e){copyText(e, `${title}\n${metadata}\n${link}`)}, false);
 
         //---------------------------------------------------------------------
 
@@ -48,6 +48,7 @@ function copyText(e, text)
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+
 //  console.log(e.target);
 //  console.log(text);
 }

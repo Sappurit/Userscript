@@ -3,7 +3,7 @@
 // @namespace   TorrentGalaxy_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=TorrentGalaxy.to
-// @version     32
+// @version     1
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/TorrentGalaxy_Show_Poster_Plus/TorrentGalaxy_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/TorrentGalaxy_Show_Poster_Plus/TorrentGalaxy_Show_Poster_Plus.user.js
@@ -12,7 +12,6 @@
 // @match       https://*.TorrentGalaxy.mx/torrents.php*
 // @match       https://*.tgx.rs/torrents.php*
 // @match       https://*.tgx.sb/torrents.php*
-
 // ==/UserScript==
 
 //---------------------------------------------------------------------
