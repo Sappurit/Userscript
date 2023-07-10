@@ -11,10 +11,14 @@
 // @match       https://*.javtrailers.com/video/*
 // ==/UserScript==
 
+console.log('Debug : ' + new Date().toLocaleString());
+
 // (function() {
 window.addEventListener('load', setTimeout(function() {
 
     'use strict';
+
+    console.log('Debug : ' + new Date().toLocaleString());
 
     let targetElement = document.querySelector('#info-row > div:nth-of-type(2) > p:nth-of-type(1)');
     let id = targetElement.firstElementChild.nextSibling.textContent.trim();

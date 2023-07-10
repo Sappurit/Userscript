@@ -11,10 +11,14 @@
 // @match       https://*.youtube.com/watch?v=*
 // ==/UserScript==
 
+console.log('Debug : ' + new Date().toLocaleString());
+
 // (function() {
 window.addEventListener('load', setTimeout(function() {
 
     'use strict';
+
+    console.log('Debug : ' + new Date().toLocaleString());
 
     try
     {
