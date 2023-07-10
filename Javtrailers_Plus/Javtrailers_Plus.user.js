@@ -3,7 +3,7 @@
 // @namespace   Javtrailers_Plus
 // @description Shows Avcollectors and Sukebei search links on the Javtrailers webpage. Copy the DVD ID to the clipboard.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=javtrailers.com
-// @version     3
+// @version     4
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Plus/Javtrailers_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Plus/Javtrailers_Plus.user.js
@@ -11,7 +11,9 @@
 // @match       https://*.javtrailers.com/video/*
 // ==/UserScript==
 
-(function() {
+// (function() {
+window.addEventListener('load', setTimeout(function() {
+
     'use strict';
 
     let targetElement = document.querySelector('#info-row > div:nth-of-type(2) > p:nth-of-type(1)');
@@ -37,7 +39,8 @@
     targetElement.append(' · ', avcollectorsAnchor);
     targetElement.append(' · ', sukebeiAnchor);
 
-})();
+}, 3000), false);
+// })();
 
 //-----------------------------------------------------------------------------
 

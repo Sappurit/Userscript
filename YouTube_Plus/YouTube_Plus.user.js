@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     4
+// @version     5
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -11,7 +11,9 @@
 // @match       https://*.youtube.com/watch?v=*
 // ==/UserScript==
 
+// (function() {
 window.addEventListener('load', setTimeout(function() {
+
     'use strict';
 
     try
@@ -37,6 +39,7 @@ window.addEventListener('load', setTimeout(function() {
     } catch(e) {}
 
 }, 3000), false);
+// })();
 
 //-----------------------------------------------------------------------------
 
