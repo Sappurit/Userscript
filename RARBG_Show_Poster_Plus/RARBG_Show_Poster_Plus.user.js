@@ -235,8 +235,9 @@ function copyText(e, text)
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-//  console.log(e.target);
-//  console.log(text);
+
+    // console.log(e.target);
+    // console.log(text);
 }
 
 //-----------------------------------------------------------------------------

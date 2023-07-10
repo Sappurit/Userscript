@@ -77,8 +77,8 @@ function copyText(e, text)
     document.execCommand('copy');
     document.body.removeChild(textarea);
 
-    //  console.log(e.target);
-    //  console.log(text);
+    // console.log(e.target);
+    // console.log(text);
 }
 
 /********************************************************

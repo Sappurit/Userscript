@@ -13,26 +13,34 @@
 
 //-----------------------------------------------------------------------------
 
-// https://stackoverflow.com/questions/12897446/userscript-to-wait-for-page-to-load-before-executing-code-techniques/
-
 console.log('Load : ' + new Date().toLocaleString());
 
-(function init() {
+//-----------------------------------------------------------------------------
+// https://stackoverflow.com/questions/12897446/userscript-to-wait-for-page-to-load-before-executing-code-techniques/
+//-----------------------------------------------------------------------------
 
-   console.log('Wait : ' + new Date().toLocaleString());
+var observer = new MutationObserver(observeCallback);
+var observeElement = document.querySelector('body');
+var observeOptions = { childList: true, subtree: true };
 
-   let verify = document.querySelector('h1[class="style-scope ytd-watch-metadata"]');
+observer.observe(observeElement, observeOptions);
 
-   if (verify) { YouTube(); } else { setTimeout(init, 300); }
-})();
+async function observeCallback(mutations)
+{
+    if ( document.querySelector('h1[class="style-scope ytd-watch-metadata"]') )
+    {
+//      console.log(mutations);
+        console.log('Pass : ' + new Date().toLocaleString());
+        YouTube();
+        observer.disconnect();
+    }
+} // observeCallback
 
 //-----------------------------------------------------------------------------
 
 function YouTube()
 {
     'use strict';
-
-    console.log('Pass : ' + new Date().toLocaleString());
 
     try
     {
@@ -54,6 +62,10 @@ function YouTube()
         let h1 = document.querySelector('h1[class="style-scope ytd-watch-metadata"]');
         h1.append(' • ', copyInfo);
 
+        //---------------------------------------------------------------------
+
+        console.log(title);
+
     } catch(e) {}
 }
 
@@ -68,8 +80,8 @@ function copyText(e, text)
     document.execCommand('copy');
     document.body.removeChild(textarea);
 
-    //  console.log(e.target);
-    //  console.log(text);
+    // console.log(e.target);
+    // console.log(text);
 }
 
 /********************************************************

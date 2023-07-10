@@ -21,7 +21,7 @@
 
     observer.observe(observeElement, observeOptions);
 
-    function observeCallback (mutations)
+    function observeCallback(mutations)
     {
         for (let mutation of mutations)
         {
