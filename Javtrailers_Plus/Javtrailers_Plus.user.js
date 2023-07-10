@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name        Javtrailers Show Sukebei
-// @namespace   Javtrailers_Show_Sukebei
+// @name        Javtrailers Plus
+// @namespace   Javtrailers_Plus
 // @description Shows Avcollectors and Sukebei search links on the Javtrailers webpage. Copy the DVD ID to the clipboard.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=javtrailers.com
-// @version     2
+// @version     3
 // @author      Sappurit
-// @updateURL   https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Show_Sukebei/Javtrailers_Show_Sukebei.user.js
-// @downloadURL https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Show_Sukebei/Javtrailers_Show_Sukebei.user.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Plus/Javtrailers_Plus.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/Javtrailers_Plus/Javtrailers_Plus.user.js
 // @license     MIT
 // @match       https://*.javtrailers.com/video/*
 // ==/UserScript==
@@ -21,7 +21,7 @@
     let clipboardCopy = document.createElement('a');
     clipboardCopy.innerText = '📋';
     clipboardCopy.style.cursor = 'pointer';
-    clipboardCopy.addEventListener('click', copyText, false);
+    clipboardCopy.addEventListener('click', function(e){copyText(e, `${id}`)}, false);
 
     let avcollectorsAnchor = document.createElement('a');
     avcollectorsAnchor.setAttribute('target', '_blank');
@@ -37,19 +37,35 @@
     targetElement.append(' · ', avcollectorsAnchor);
     targetElement.append(' · ', sukebeiAnchor);
 
-    function copyText()
-    {
-        let node = this.previousElementSibling.nextSibling;
-        let range = document.createRange();
-        let selection = document.getSelection();
-//      range.selectNodeContents(node);
-        range.selectNode(node);
-        selection.removeAllRanges(); // Can't merge selections. It will ignore addRange.
-        selection.addRange(range);
-        document.execCommand("copy");
-    }
-
 })();
+
+//-----------------------------------------------------------------------------
+
+function copyText(e, text)
+{
+    let textarea = document.createElement('textarea');
+    document.body.appendChild(textarea);
+    textarea.value = text;
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    //  console.log(e.target);
+    //  console.log(text);
+}
+
+//-----------------------------------------------------------------------------
+
+function copyTextSelection()
+{
+    let node = this;
+    let range = document.createRange();
+    let selection = document.getSelection();
+    range.selectNode(node);
+    selection.removeAllRanges(); // Can't merge selections. It will ignore addRange.
+    selection.addRange(range);
+    document.execCommand("copy");
+}
 
 /********************************************************
 

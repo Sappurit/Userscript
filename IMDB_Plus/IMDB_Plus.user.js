@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name        IMDB Show RARBG
-// @namespace   IMDB_Show_RARBG
+// @name        IMDB Plus
+// @namespace   IMDB_Plus
 // @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080 and TV HD Series.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
 // @version     10
 // @author      Sappurit
-// @updateURL   https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
-// @downloadURL https://github.com/Sappurit/Userscript/raw/main/IMDB_Show_RARBG/IMDB_Show_RARBG.user.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/IMDB_Plus/IMDB_Plus.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/IMDB_Plus/IMDB_Plus.user.js
 // @license     MIT
 // @match       https://*.imdb.com/title/tt*
 // ==/UserScript==

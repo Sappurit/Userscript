@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name        YouTube Copy Info
-// @namespace   YouTube_Copy_Info
+// @name        YouTube Plus
+// @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     3
+// @version     4
 // @author      Sappurit
-// @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Show_Poster/YouTube_Copy_Info.user.js
-// @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Show_Poster/YouTube_Copy_Info.user.js
+// @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
+// @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @license     MIT
 // @match       https://*.youtube.com/watch?v=*
 // ==/UserScript==
@@ -49,8 +49,8 @@ function copyText(e, text)
     document.execCommand('copy');
     document.body.removeChild(textarea);
 
-//  console.log(e.target);
-//  console.log(text);
+    //  console.log(e.target);
+    //  console.log(text);
 }
 
 /********************************************************
