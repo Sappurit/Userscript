@@ -21,7 +21,7 @@ console.log('Load : ' + new Date().toLocaleString());
 
    console.log('Wait : ' + new Date().toLocaleString());
 
-   let verify = document.getElementById('title');
+   let verify = document.querySelector('h1[class="style-scope ytd-watch-metadata"]');
 
    if (verify) { YouTube(); } else { setTimeout(init, 300); }
 })();
