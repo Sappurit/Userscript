@@ -11,14 +11,28 @@
 // @match       https://*.youtube.com/watch?v=*
 // ==/UserScript==
 
-console.log('Debug : ' + new Date().toLocaleString());
+//-----------------------------------------------------------------------------
 
-// (function() {
-window.addEventListener('load', setTimeout(function() {
+// https://stackoverflow.com/questions/12897446/userscript-to-wait-for-page-to-load-before-executing-code-techniques/
 
+console.log('Load : ' + new Date().toLocaleString());
+
+(function init() {
+
+   console.log('Wait : ' + new Date().toLocaleString());
+
+   let verify = document.getElementById('title');
+
+   if (verify) { YouTube(); } else { setTimeout(init, 300); }
+})();
+
+//-----------------------------------------------------------------------------
+
+function YouTube()
+{
     'use strict';
 
-    console.log('Debug : ' + new Date().toLocaleString());
+    console.log('Pass : ' + new Date().toLocaleString());
 
     try
     {
@@ -41,9 +55,7 @@ window.addEventListener('load', setTimeout(function() {
         h1.append(' • ', copyInfo);
 
     } catch(e) {}
-
-}, 3000), false);
-// })();
+)
 
 //-----------------------------------------------------------------------------
 
@@ -90,4 +102,11 @@ There is no Node.insertAfter() method. It can be emulated by Node.insertBefore(n
 
 *********************************************************/
 
+(function init(){
+   var counter = document.getElementById('id-of-element');
 
+   if (counter) 
+   { /* do something with counter element */ } 
+   else 
+   { setTimeout(init, 0);}
+})();
