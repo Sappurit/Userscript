@@ -3,7 +3,7 @@
 // @namespace   IMDB_Plus
 // @description Shows Subscene and RARBG search links on the IMDB webpage. The default is set to x264/1080 and TV HD Series.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=imdb.com
-// @version     11
+// @version     12
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/IMDB_Plus/IMDB_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/IMDB_Plus/IMDB_Plus.user.js
@@ -15,7 +15,7 @@
     'use strict';
 
     let id = document.querySelector('meta[property="imdb:pageConst"]').getAttribute('content');
-    let title = document.querySelector('meta[property="og:title"]').getAttribute('content').replace(/ - IMDb/, '').replace(/ \(\d\d\d\d\)$/, '');
+    let title = document.querySelector('meta[property="og:title"]').getAttribute('content').replace(/ \(\d\d\d\d\) ⭐ \d.*$/, '');
 
     let targetElement = document.querySelector('h1[data-testid="hero__pageTitle"] ~ ul[role="presentation"][class^="ipc-inline-list ipc-inline-list--show-dividers"]');
 
