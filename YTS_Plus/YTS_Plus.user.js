@@ -3,7 +3,7 @@
 // @namespace   YTS_Plus
 // @description Shows magnet links on the movie page. Click to copy the magnet links.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=yts.mx
-// @version     1
+// @version     2
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YTS_Plus/YTS_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YTS_Plus/YTS_Plus.user.js
@@ -46,12 +46,12 @@ trackers.push('http://tracker2.dler.org/announce');
         for (let i = 0; i < elements.length; i++)
         {
             let hash = elements[i].href.match(/\w{40}$/);
-            let text = elements[i].innerText;
+            let text = elements[i].innerHTML;
 
             let magnetURL = 'magnet:?xt=urn:btih:' + hash + '&dn=' + title +'&tr=' + trackers.join('&tr=');
 
             let magnetAnchor = document.createElement('a');
-            magnetAnchor.innerText = text;
+            magnetAnchor.innerHTML = text;
             magnetAnchor.setAttribute('rel', 'nofollow');
             magnetAnchor.setAttribute('href', magnetURL);
             magnetAnchor.addEventListener('click', function(e){copyText(e, `${magnetURL}`)}, false);

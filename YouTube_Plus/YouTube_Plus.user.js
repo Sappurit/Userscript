@@ -3,68 +3,133 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     5
+// @version     7
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @license     MIT
-// @match       https://*.youtube.com/watch?v=*
+// @match       https://*.youtube.com/*
 // ==/UserScript==
 
 //-----------------------------------------------------------------------------
 
-console.log('Load : ' + new Date().toLocaleString());
+// console.log('Load : ' + new Date().toLocaleString());
 
+//-----------------------------------------------------------------------------
+
+var Old = { title: undefined, metadata: undefined, id: undefined, link: undefined, thumbnail: undefined };
+var New = { title: undefined, metadata: undefined, id: undefined, link: undefined, thumbnail: undefined };
+
+//-----------------------------------------------------------------------------
+// https://stackoverflow.com/questions/34077641/how-to-detect-page-navigation-on-youtube-and-modify-its-appearance-seamlessly
+// How to inspect a site-specific events. Run getEventListeners(document) and getEventListeners(window) in devtools console.
+//-----------------------------------------------------------------------------
+
+document.addEventListener('yt-navigate-finish', function (event) {
+    if ( document.location.href.match(/youtube.com\/watch\?v=/) )
+    {
+        console.log('Observe Start : ' + new Date().toLocaleString());
+        observer.observe(observeElement, observeOptions);
+    }
+});
+
+//-----------------------------------------------------------------------------
+/******************************************************************************
+
+window.addEventListener('DOMContentLoaded', function (event) {
+    console.log(document.location.href);
+    console.log(event.state);
+});
+
+//-----------------------------------------------------------------------------
+
+window.addEventListener('popstate', function (event) {
+    console.log(document.location.href);
+    console.log(event.state);
+});
+
+//-----------------------------------------------------------------------------
+// https://stackoverflow.com/questions/56760727/how-to-observe-a-change-in-the-url-using-javascript
+// https://stackoverflow.com/questions/4570093/how-to-get-notified-about-changes-of-the-history-via-history-pushstate
+//-----------------------------------------------------------------------------
+
+(function(){
+    var ps = history.pushState;  // Preserve the original function
+    history.pushState = function(){
+        console.log("navigating", arguments); 
+        let output = ps.apply(history, arguments); // Apply the original functionality
+        return output;
+    };
+
+    history.replaceState = function(){
+        console.log("navigating", arguments); 
+        let output = History.prototype.replaceState.apply(history, arguments); // No need to store the original function. Use History interface.
+        return output;
+    };
+}());
+
+******************************************************************************/
 //-----------------------------------------------------------------------------
 // https://stackoverflow.com/questions/12897446/userscript-to-wait-for-page-to-load-before-executing-code-techniques/
 //-----------------------------------------------------------------------------
 
 var observer = new MutationObserver(observeCallback);
-var observeElement = document.querySelector('body');
+var observeElement = document.body;
 var observeOptions = { childList: true, subtree: true };
-
-observer.observe(observeElement, observeOptions);
 
 async function observeCallback(mutations)
 {
-    if ( document.querySelector('h1[class="style-scope ytd-watch-metadata"]') )
+    try
     {
-//      console.log(mutations);
-        console.log('Pass : ' + new Date().toLocaleString());
-        YouTube();
+        New.title     = document.querySelector('div#title > h1 > yt-formatted-string').textContent;
+        New.metadata  = document.querySelector('span#snippet-text > yt-attributed-string').textContent.replaceAll(/\n+/g, ' ').trim().substr(0,140);
+        New.id        = document.querySelector('ytd-page-manager#page-manager > ytd-watch-flexy').getAttribute('video-id');
+        New.link      = 'https://www.youtube.com/watch?v=' + New.id;
+        New.thumbnail = 'https://i.ytimg.com/vi/' + New.id + '/maxresdefault.jpg';
+    } catch(e) {}
+
+    if ( New.title && New.metadata && New.id && Old.title !== New.title && Old.metadata !== New.metadata && Old.id !== New.id )
+    {
         observer.disconnect();
+        YouTube();
+        Old.title    = New.title;
+        Old.metadata = New.metadata;
+        Old.id       = New.id;
+        console.log(New.title);
+        console.log(New.metadata);
+        console.log(New.link);
+        console.log(New.thumbnail);
+        console.log('Observe Stop : ' + new Date().toLocaleString());
     }
-} // observeCallback
+}
 
 //-----------------------------------------------------------------------------
 
 function YouTube()
 {
-    'use strict';
-
     try
     {
-        let title     = document.querySelector('meta[property="og:title"]').content;
-        let metadata  = document.querySelector('meta[property="og:description"]').content;
-        let link      = document.querySelector('meta[property="og:url"]').content;
-        let thumbnail = document.querySelector('meta[property="og:image"]').content;
+        let clipboardCopy = document.querySelector('span#clipboardCopy');
+
+        if ( clipboardCopy )
+        {
+            clipboardCopy.previousSibling.remove();
+            clipboardCopy.remove();
+        }
+
+        clipboardCopy = document.createElement('span');
+        clipboardCopy.setAttribute('id', 'clipboardCopy');
+        clipboardCopy.innerText = '📋';
+        clipboardCopy.style.cursor = 'pointer';
+        clipboardCopy.style.textDecoration = 'none';
+        clipboardCopy.addEventListener('click', function(e){copyText(e, `${New.title}\n${New.link}`)}, false);
 
         //---------------------------------------------------------------------
 
-        let copyInfo = document.createElement('span');
-        copyInfo.innerText = '📋';
-        copyInfo.style.cursor = 'pointer';
-        copyInfo.style.textDecoration = 'none';
-        copyInfo.addEventListener('click', function(e){copyText(e, `${title}\n${metadata}\n${link}`)}, false);
+        let h1 = document.querySelector('div#title > h1[class="style-scope ytd-watch-metadata"]');
+        h1.append(' • ', clipboardCopy);
 
         //---------------------------------------------------------------------
-
-        let h1 = document.querySelector('h1[class="style-scope ytd-watch-metadata"]');
-        h1.append(' • ', copyInfo);
-
-        //---------------------------------------------------------------------
-
-        console.log(title);
 
     } catch(e) {}
 }
@@ -84,7 +149,20 @@ function copyText(e, text)
     // console.log(text);
 }
 
-/********************************************************
+//-----------------------------------------------------------------------------
+
+function copyTextSelection()
+{
+    let node = this;
+    let range = document.createRange();
+    let selection = document.getSelection();
+    range.selectNode(node);
+    selection.removeAllRanges(); // Can't merge selections. It will ignore addRange.
+    selection.addRange(range);
+    document.execCommand("copy");
+}
+
+/******************************************************************************
 
 https://developer.mozilla.org/en-US/docs/Web/API/Element
 
@@ -112,13 +190,7 @@ Node.appendChild()      // Only accepts one Node objects. Returns the appended N
 Node.insertBefore()
 There is no Node.insertAfter() method. It can be emulated by Node.insertBefore(newElement, Node.nextSibling)
 
-*********************************************************/
+******************************************************************************/
 
-(function init(){
-   var counter = document.getElementById('id-of-element');
 
-   if (counter) 
-   { /* do something with counter element */ } 
-   else 
-   { setTimeout(init, 0);}
-})();
+

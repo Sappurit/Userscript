@@ -27,6 +27,7 @@
         {
             for (let node of mutation.addedNodes)
             {
+//              if (!(node.classList && !node.classList.contains("timestamp")))
 //              if (!(node instanceof HTMLDivElement)) // track only DIV elements.
                 if (!(node instanceof HTMLElement)) // track only HTML elements.
                 {
