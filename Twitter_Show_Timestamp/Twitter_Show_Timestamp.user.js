@@ -15,7 +15,7 @@
     'use strict';
 
     let observer = new MutationObserver(observeCallback);
-    let observeElement = document.querySelector('body');
+    let observeElement = document.body;
     let observeOptions = { childList: true, subtree: true };
     let timeOptions = { dateStyle: 'medium', timeStyle: 'short' };
 

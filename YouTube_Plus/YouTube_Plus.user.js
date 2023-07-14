@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     7
+// @version     8
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -17,8 +17,16 @@
 
 //-----------------------------------------------------------------------------
 
-var Old = { title: undefined, metadata: undefined, id: undefined, link: undefined, thumbnail: undefined };
-var New = { title: undefined, metadata: undefined, id: undefined, link: undefined, thumbnail: undefined };
+var Old = { title: undefined, desc: undefined, id: undefined, link: undefined, thumbnail: undefined };
+var New = { title: undefined, desc: undefined, id: undefined, link: undefined, thumbnail: undefined };
+
+//-----------------------------------------------------------------------------
+
+var observeElement = document.body;
+var observeOptions = { childList: true, subtree: true };
+
+var observerWatch = new MutationObserver(observeWatchCallback);
+var observerSearch = new MutationObserver(observeSearchCallback);
 
 //-----------------------------------------------------------------------------
 // https://stackoverflow.com/questions/34077641/how-to-detect-page-navigation-on-youtube-and-modify-its-appearance-seamlessly
@@ -26,10 +34,17 @@ var New = { title: undefined, metadata: undefined, id: undefined, link: undefine
 //-----------------------------------------------------------------------------
 
 document.addEventListener('yt-navigate-finish', function (event) {
-    if ( document.location.href.match(/youtube.com\/watch\?v=/) )
+
+    if ( document.location.href.match(/youtube.com\/watch\?/) )
     {
         console.log('Observe Start : ' + new Date().toLocaleString());
-        observer.observe(observeElement, observeOptions);
+        observerWatch.observe(observeElement, observeOptions);
+    }
+
+    if ( document.location.href.match(/youtube.com\/results\?/) )
+    {
+        console.log('Observe Start : ' + new Date().toLocaleString());
+        observerSearch.observe(observeElement, observeOptions);
     }
 });
 
@@ -73,30 +88,26 @@ window.addEventListener('popstate', function (event) {
 // https://stackoverflow.com/questions/12897446/userscript-to-wait-for-page-to-load-before-executing-code-techniques/
 //-----------------------------------------------------------------------------
 
-var observer = new MutationObserver(observeCallback);
-var observeElement = document.body;
-var observeOptions = { childList: true, subtree: true };
-
-async function observeCallback(mutations)
+async function observeWatchCallback(mutations)
 {
     try
     {
         New.title     = document.querySelector('div#title > h1 > yt-formatted-string').textContent;
-        New.metadata  = document.querySelector('span#snippet-text > yt-attributed-string').textContent.replaceAll(/\n+/g, ' ').trim().substr(0,140);
+        New.desc      = document.querySelector('span#snippet-text > yt-attributed-string').textContent.replaceAll(/\n+/g, ' ').trim().substr(0,140);
         New.id        = document.querySelector('ytd-page-manager#page-manager > ytd-watch-flexy').getAttribute('video-id');
         New.link      = 'https://www.youtube.com/watch?v=' + New.id;
         New.thumbnail = 'https://i.ytimg.com/vi/' + New.id + '/maxresdefault.jpg';
     } catch(e) {}
 
-    if ( New.title && New.metadata && New.id && Old.title !== New.title && Old.metadata !== New.metadata && Old.id !== New.id )
+    if ( New.title && New.desc && New.id && Old.title !== New.title && Old.desc !== New.desc && Old.id !== New.id )
     {
-        observer.disconnect();
+        observerWatch.disconnect();
         YouTube();
         Old.title    = New.title;
         Old.metadata = New.metadata;
         Old.id       = New.id;
         console.log(New.title);
-        console.log(New.metadata);
+        console.log(New.desc);
         console.log(New.link);
         console.log(New.thumbnail);
         console.log('Observe Stop : ' + new Date().toLocaleString());
@@ -160,6 +171,77 @@ function copyTextSelection()
     selection.removeAllRanges(); // Can't merge selections. It will ignore addRange.
     selection.addRange(range);
     document.execCommand("copy");
+}
+
+//-----------------------------------------------------------------------------
+
+async function observeSearchCallback(mutations)
+{
+        for (let mutation of mutations)
+        {
+            for (let node of mutation.addedNodes)
+            {
+//              if (!(node.classList && !node.classList.contains("timestamp")))
+                if (!(node instanceof HTMLElement)) // track only HTML elements.
+                {
+                    continue;
+                }
+
+//              console.log(node);
+
+
+
+
+//<div id="contents">
+//	<ytd-video-renderer class="style-scope ytd-item-section-renderer">
+//		<div id="dismissible">
+//			<a id="video-title" title href>
+//
+//
+//		<div class="metadata-snippet-container style-scope ytd-video-renderer style-scope ytd-video-renderer">
+//			<span id="time">
+//			<yt-formatted-string class="metadata-snippet-text-navigation style-scope ytd-video-renderer">
+//
+//			<yt-formatted-string class="metadata-snippet-text style-scope ytd-video-renderer">
+
+
+
+
+                for (let element of node.querySelectorAll('div#contents > ytd-video-renderer'))
+                {
+//                  console.log(element);
+
+                    try
+                    {
+                        let anchorElement = element.querySelector('div#dismissible > a#video-title')
+                        let title = anchorElement.getAttribute('title');
+                        let link  = anchorElement.getAttribute('href');
+
+                        let desc  = element.querySelector('span#time + yt-formatted-string').textContent;
+
+                        //-----------------------------------------------------
+
+                        console.log(title);
+                        console.log(link);
+                        console.log(desc);
+
+                        //-----------------------------------------------------
+
+                        let clipboardCopy = document.createElement('span');
+                        clipboardCopy.setAttribute('id', 'clipboardCopy');
+                        clipboardCopy.innerText = '📋';
+                        clipboardCopy.style.cursor = 'pointer';
+                        clipboardCopy.style.textDecoration = 'none';
+                        clipboardCopy.addEventListener('click', function(e){copyText(e, `${title}\n${link}`)}, false);
+
+                        //-----------------------------------------------------
+
+                        anchorElement.append(' • ', clipboardCopy);
+
+                    } catch(e) {}
+                }
+            } // mutation.addedNodes
+        } // mutations
 }
 
 /******************************************************************************
