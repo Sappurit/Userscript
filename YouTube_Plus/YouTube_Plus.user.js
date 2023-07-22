@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     10
+// @version     11
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -181,15 +181,15 @@ async function observeSearchCallback(mutations)
 
 //<div id="contents">
 //	<ytd-video-renderer class="style-scope ytd-item-section-renderer">
-//		<div id="dismissible">
-//			<a id="video-title" title href>
+//				<div id="dismissible">
+//					<a id="video-title" title href>
 //
 //
-//		<div class="metadata-snippet-container style-scope ytd-video-renderer style-scope ytd-video-renderer">
-//			<span id="time">
-//			<yt-formatted-string class="metadata-snippet-text-navigation style-scope ytd-video-renderer">
+//				<div class="metadata-snippet-container style-scope ytd-video-renderer style-scope ytd-video-renderer">
+//					<span id="time">
+//					<yt-formatted-string class="metadata-snippet-text-navigation style-scope ytd-video-renderer">
 //
-//			<yt-formatted-string class="metadata-snippet-text style-scope ytd-video-renderer">
+//					<yt-formatted-string class="metadata-snippet-text style-scope ytd-video-renderer">
 
 
     for (let element of document.querySelectorAll('div#contents > ytd-video-renderer'))
@@ -197,8 +197,8 @@ async function observeSearchCallback(mutations)
         try
         {
             let anchorElement = element.querySelector('div#dismissible a#video-title')
-            let title = anchorElement.getAttribute('title');
-            let link  = anchorElement.getAttribute('href');
+            let title = anchorElement.title;
+            let link  = anchorElement.href.replace(/&(pp|t)=.*/, '');
 
             let desc  = element.querySelector('span#time + yt-formatted-string').textContent;
             let clipboardCopy = element.querySelector('div#dismissible span#clipboardCopy');
