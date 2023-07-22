@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     9
+// @version     10
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -37,12 +37,14 @@ document.addEventListener('yt-navigate-finish', function (event) {
 
     if ( document.location.href.match(/youtube.com\/watch\?/) )
     {
+	if ( observerSearch ) observerSearch.disconnect();
         console.log('Observe Start Video : ' + new Date().toLocaleString());
         observerWatch.observe(observeElement, observeOptions);
     }
 
     if ( document.location.href.match(/youtube.com\/results\?/) )
     {
+	if ( observerWatch ) observerWatch.disconnect();
         console.log('Observe Start Search : ' + new Date().toLocaleString());
         observerSearch.observe(observeElement, observeOptions);
     }
@@ -211,7 +213,7 @@ async function observeSearchCallback(mutations)
 
             //-----------------------------------------------------
 
-            if ( title && link && desc && not clipboardCopy )
+            if ( title && link && desc && ! clipboardCopy )
             {
                 let clipboardCopy = document.createElement('span');
                 clipboardCopy.setAttribute('id', 'clipboardCopy');
