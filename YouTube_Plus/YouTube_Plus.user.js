@@ -25,8 +25,7 @@ var New = { title: undefined, desc: undefined, id: undefined, link: undefined, t
 var observeElement = document.body;
 var observeOptions = { childList: true, subtree: true };
 
-var observerWatch = new MutationObserver(observeWatchCallback);
-var observerSearch = new MutationObserver(observeSearchCallback);
+var observerYouTube;
 
 //-----------------------------------------------------------------------------
 // https://stackoverflow.com/questions/34077641/how-to-detect-page-navigation-on-youtube-and-modify-its-appearance-seamlessly
@@ -37,16 +36,16 @@ document.addEventListener('yt-navigate-finish', function (event) {
 
     if ( document.location.href.match(/youtube.com\/watch\?/) )
     {
-	if ( observerSearch ) observerSearch.disconnect();
+	observerYouTube = new MutationObserver(observeWatchCallback);
+        observerYouTube.observe(observeElement, observeOptions);
         console.log('Observe Start Video : ' + new Date().toLocaleString());
-        observerWatch.observe(observeElement, observeOptions);
     }
 
     if ( document.location.href.match(/youtube.com\/results\?/) )
     {
-	if ( observerWatch ) observerWatch.disconnect();
+	observerYouTube = new MutationObserver(observeSearchCallback);
+        observerYouTube.observe(observeElement, observeOptions);
         console.log('Observe Start Search : ' + new Date().toLocaleString());
-        observerSearch.observe(observeElement, observeOptions);
     }
 });
 
@@ -103,7 +102,7 @@ async function observeWatchCallback(mutations)
 
     if ( New.title && New.desc && New.id && Old.title !== New.title && Old.desc !== New.desc && Old.id !== New.id )
     {
-        observerWatch.disconnect();
+        observerYouTube.disconnect();
         YouTube();
         Old.title    = New.title;
         Old.metadata = New.metadata;
