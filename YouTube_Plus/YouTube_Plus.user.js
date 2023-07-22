@@ -205,10 +205,10 @@ async function observeSearchCallback(mutations)
 
             //-----------------------------------------------------
 
-            console.log(title);
-            console.log(link);
-            console.log(desc);
-            console.log(clipboardCopy);
+//          console.log(title);
+//          console.log(link);
+//          console.log(desc);
+//          console.log(clipboardCopy);
 
             //-----------------------------------------------------
 
