@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     11
+// @version     12
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -223,7 +223,7 @@ async function observeSearchCallback(mutations)
 
                 //-----------------------------------------------------
 
-                anchorElement.append(' • ', clipboardCopy);
+                anchorElement.after(' • ', clipboardCopy);
             }
         } catch(e) {}
     }
