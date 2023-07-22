@@ -3,7 +3,7 @@
 // @namespace   YouTube_Plus
 // @description Shows Clipboard Icon to Copy the Video Info.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=youtube.com
-// @version     8
+// @version     9
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/YouTube_Plus/YouTube_Plus.user.js
@@ -37,13 +37,13 @@ document.addEventListener('yt-navigate-finish', function (event) {
 
     if ( document.location.href.match(/youtube.com\/watch\?/) )
     {
-        console.log('Observe Start : ' + new Date().toLocaleString());
+        console.log('Observe Start Video : ' + new Date().toLocaleString());
         observerWatch.observe(observeElement, observeOptions);
     }
 
     if ( document.location.href.match(/youtube.com\/results\?/) )
     {
-        console.log('Observe Start : ' + new Date().toLocaleString());
+        console.log('Observe Start Search : ' + new Date().toLocaleString());
         observerSearch.observe(observeElement, observeOptions);
     }
 });
@@ -110,7 +110,7 @@ async function observeWatchCallback(mutations)
         console.log(New.desc);
         console.log(New.link);
         console.log(New.thumbnail);
-        console.log('Observe Stop : ' + new Date().toLocaleString());
+        console.log('Observe Stop Video : ' + new Date().toLocaleString());
     }
 }
 
@@ -177,20 +177,6 @@ function copyTextSelection()
 
 async function observeSearchCallback(mutations)
 {
-        for (let mutation of mutations)
-        {
-            for (let node of mutation.addedNodes)
-            {
-//              if (!(node.classList && !node.classList.contains("timestamp")))
-                if (!(node instanceof HTMLElement)) // track only HTML elements.
-                {
-                    continue;
-                }
-
-//              console.log(node);
-
-
-
 
 //<div id="contents">
 //	<ytd-video-renderer class="style-scope ytd-item-section-renderer">
@@ -205,43 +191,41 @@ async function observeSearchCallback(mutations)
 //			<yt-formatted-string class="metadata-snippet-text style-scope ytd-video-renderer">
 
 
+    for (let element of document.querySelectorAll('div#contents > ytd-video-renderer'))
+    {
+        try
+        {
+            let anchorElement = element.querySelector('div#dismissible a#video-title')
+            let title = anchorElement.getAttribute('title');
+            let link  = anchorElement.getAttribute('href');
 
+            let desc  = element.querySelector('span#time + yt-formatted-string').textContent;
+            let clipboardCopy = element.querySelector('div#dismissible span#clipboardCopy');
 
-                for (let element of node.querySelectorAll('div#contents > ytd-video-renderer'))
-                {
-//                  console.log(element);
+            //-----------------------------------------------------
 
-                    try
-                    {
-                        let anchorElement = element.querySelector('div#dismissible > a#video-title')
-                        let title = anchorElement.getAttribute('title');
-                        let link  = anchorElement.getAttribute('href');
+            console.log(title);
+            console.log(link);
+            console.log(desc);
+            console.log(clipboardCopy);
 
-                        let desc  = element.querySelector('span#time + yt-formatted-string').textContent;
+            //-----------------------------------------------------
 
-                        //-----------------------------------------------------
+            if ( title && link && desc && not clipboardCopy )
+            {
+                let clipboardCopy = document.createElement('span');
+                clipboardCopy.setAttribute('id', 'clipboardCopy');
+                clipboardCopy.innerText = '📋';
+                clipboardCopy.style.cursor = 'pointer';
+                clipboardCopy.style.textDecoration = 'none';
+                clipboardCopy.addEventListener('click', function(e){copyText(e, `${title}\n${link}`)}, false);
 
-                        console.log(title);
-                        console.log(link);
-                        console.log(desc);
+                //-----------------------------------------------------
 
-                        //-----------------------------------------------------
-
-                        let clipboardCopy = document.createElement('span');
-                        clipboardCopy.setAttribute('id', 'clipboardCopy');
-                        clipboardCopy.innerText = '📋';
-                        clipboardCopy.style.cursor = 'pointer';
-                        clipboardCopy.style.textDecoration = 'none';
-                        clipboardCopy.addEventListener('click', function(e){copyText(e, `${title}\n${link}`)}, false);
-
-                        //-----------------------------------------------------
-
-                        anchorElement.append(' • ', clipboardCopy);
-
-                    } catch(e) {}
-                }
-            } // mutation.addedNodes
-        } // mutations
+                anchorElement.append(' • ', clipboardCopy);
+            }
+        } catch(e) {}
+    }
 }
 
 /******************************************************************************
