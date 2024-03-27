@@ -1,0 +1,288 @@
+
+//-----------------------------------------------------------------------------
+
+let i = 0;
+for (let cssRule of document.styleSheets[4].cssRules)
+{
+	console.log(`${i++} ${cssRule.cssText.replace(/\n/g, ' ')}`);
+}
+
+//-----------------------------------------------------------------------------
+
+​ 0 body.txdark { background-color: rgb(34, 34, 34); }
+​ 1 nav.txdark { background: radial-gradient(at center center, rgb(60, 72, 39) 0%, rgb(34, 34, 34) 71%); }
+​ 2 nav.txlight { background: radial-gradient(at center center, rgb(230, 240, 163) 0%, rgb(255, 255, 255) 71%); }
+​ 3 div #panelmain.outer.panel-primary.txdark { background-color: rgb(47, 47, 47); color: rgb(173, 173, 173); border-color: rgb(56, 56, 56); }
+​ 4 div #intblockheader.panel-heading.txdark { background-color: rgb(56, 56, 56); border: 0px; color: rgb(153, 153, 153); }
+​ 5 div #inthpheader.panel-heading.txdark { background-color: rgb(63, 59, 80); border: 0px; }
+​ 6 div #intblock.panel-primary.txdark { background-color: rgb(47, 47, 47); border-color: rgb(47, 47, 47); color: rgb(151, 151, 151); }
+​ 7 div #panelheader.panel-heading.txdark { background-color: rgb(60, 72, 39); border-color: rgb(60, 72, 39); }
+​ 8 input[type="text"].txdark, .tagbox.txdark, input[type="password"].txdark, #staffnote.form-control.txdark { background-color: rgb(68, 68, 68); border-color: dimgrey; color: rgb(199, 199, 199); }
+​ 9 input[type="text"].renamebox.txdark { border: 1px solid dimgray; }
+​ 10 table.hotlist.txdark, tr.hotlist.txdark, td.hotlist.txdark { border: 0px; }
+​ 11 table.hotlist.txlight { border: 1px; }
+​ 12 .btn.btn-dark.txlight { background-color: rgb(134, 134, 134); border-color: rgb(173, 173, 173); }
+​ 13 .btn.btn-dark.txdark { color: rgb(183, 183, 183); background-color: rgb(33, 33, 33); }
+​ 14 .btn-dark.focus, .btn-dark:focus .txdark { background-color: rgb(33, 33, 33); }
+​ 15 .btn.btn-dark:hover .txdark { background-color: rgb(45, 45, 45); }
+​ 16 .btn.btn-default.txdark { background-color: rgba(78, 73, 99, 0.44); border-radius: 5px; color: rgb(152, 152, 152); border-color: rgba(99, 96, 115, 0.43); box-shadow: rgb(78, 78, 78) 0px 0px 4px 0px inset; }
+​ 17 .btn.btn-default:hover.txdark { background-color: rgba(132, 124, 165, 0.38); transform: scale(0.97); }
+​ 18 .btn.btn-default.btn-sm.txdark { margin: 1px; padding: 8px; border: 0px; }
+​ 19 .btn.btn-default.txlight { background-color: transparent; }
+​ 20 .btn.btn-primary:hover.txdark { background-color: rgb(18, 77, 103); border-color: rgb(18, 77, 103); }
+​ 21 .btn.btn-success.txdark { background-color: rgb(64, 130, 0); border-color: rgb(64, 130, 0); color: rgb(239, 200, 0); }
+​ 22 .btn.btn-success:hover.txdark { background-color: rgb(78, 158, 0); }
+​ 23 .label.label-warning.txdark { background-color: rgb(128, 70, 0); color: rgb(210, 209, 209); }
+​ 24 .label.label-danger.txdark { background-color: rgb(160, 3, 3); color: rgb(222, 186, 0); }
+​ 25 .label.label-success.txdark { background-color: rgb(64, 130, 0); border-color: rgb(64, 130, 0); color: rgb(239, 200, 0); }
+​ 26 .label.label-default.txdark { background-color: rgb(76, 76, 76); color: rgb(195, 195, 195); }
+​ 27 .label.indexlabel.txlight { background-color: steelblue; }
+​ 28 .label.indexlabel.txdark { background-color: rgb(40, 102, 154); box-shadow: black 0px 0px 5px; color: rgb(204, 201, 201); }
+​ 29 .label.indexlabel { text-shadow: black 1px 1px 5px; }
+​ 30 .control__indicator.txdark { background-color: rgb(68, 68, 68); }
+​ 31 .ubuntu.panel-title { font-weight: bold; }
+​ 32 .ubuntu.panel-title.txdark { color: rgb(216, 202, 183); }
+​ 33 .ubuntu.panel-title.txlight { color: antiquewhite; }
+​ 34 select.txdark { background-color: rgb(68, 68, 68); color: rgb(195, 195, 195); border: 1px solid dimgray; }
+​ 35 div #filterbox2.txdark { background-color: rgb(53, 53, 53); border: 2px dotted dimgray; }
+​ 36 div #filterbox2:hover.txdark { background-color: rgb(49, 49, 49); }
+​ 37 div #filterbox.txdark { background-color: rgba(78, 73, 99, 0.44); border: 1px outset rgba(99, 96, 115, 0.43); }
+​ 38 div #filterbox:hover.txdark { background-color: rgb(49, 49, 49); }
+​ 39 .pagination > .disabled > a.txdark, .pagination > .disabled > a:focus.txdark, .pagination > .disabled > a:hover.txdark, .pagination > .disabled > span.txdark, .pagination > .disabled > span:focus.txdark, .pagination > .disabled > span:hover.txdark { background-color: rgba(78, 73, 99, 0.44); border: 0px rgba(99, 96, 115, 0.43); color: rgb(152, 152, 152); box-shadow: rgb(78, 78, 78) 0px 0px 4px 0px inset; }
+​ 40 .pagination > .active > a.txdark, .pagination > .active > a:focus.txdark, .pagination > .active > a:hover.txdark, .pagination > .active > span.txdark, .pagination > .active > span:focus.txdark, .pagination > .active > span:hover.txdark { background-color: rgb(25, 101, 135); border: 0px rgb(25, 101, 135); color: rgb(152, 152, 152); box-shadow: rgb(78, 78, 78) 0px 0px 4px 0px inset; }
+​ 41 .pagination > li > a.txdark, .pagination > li > span.txdark { background-color: rgba(78, 73, 99, 0.44); border: 0px rgba(99, 96, 115, 0.43); box-shadow: rgb(78, 78, 78) 0px 0px 4px 0px inset; }
+​ 42 .pagination > li > a:hover.txdark { background-color: rgba(132, 124, 165, 0.38); transform: scale(0.97); }
+​ 43 .tgxtablehead.int.txdark { background-color: rgb(63, 59, 80); color: rgb(165, 165, 165); }
+​ 44 #innerhead.tgxtablehead.int.txdark { background-color: rgb(53, 49, 70); color: rgb(165, 165, 165); }
+​ 45 .tgxtablerow:nth-of-type(2n).txdark { background-color: rgb(41, 41, 41); }
+​ 46 .tgxtablerow:nth-of-type(2n+1).txdark { background-color: rgb(56, 51, 60); }
+​ 47 .tgxtablerow:hover.txdark { background-color: rgb(86, 86, 86); }
+​ 48 .torrentpagetable.txdark > div.tprow:nth-of-type(2n) { background-color: rgb(68, 68, 68); }
+​ 49 .torrentpagetable.txdark > div.tprow:nth-of-type(2n+1) { background-color: rgb(53, 53, 53); }
+​ 50 a.txdark { color: rgb(158, 191, 255); }
+​ 51 .textshadow.txdark { text-shadow: rgb(0, 0, 0) 0px 0px 4px; }
+​ 52 div.txdark a { color: rgb(93, 135, 171); }
+​ 53 legend.txdark { color: rgb(173, 173, 173); border-bottom: 1px solid rgb(93, 93, 93); }
+​ 54 div .alert-info.txdark { background-color: rgba(87, 130, 169, 0.48); border-color: rgb(60, 70, 74); color: rgb(189, 189, 189); }
+​ 55 div .ulert-info.txdark { background-color: rgba(87, 130, 169, 0.48); border-color: rgb(60, 70, 74); color: rgb(189, 189, 189); }
+​ 56 div .ullert-info.txdark { background-color: rgba(87, 130, 169, 0.48); border-color: rgb(60, 70, 74); color: rgb(189, 189, 189); }
+​ 57 #blockalert.alert-info.txdark { color: rgb(153, 205, 230); background-color: rgb(48, 58, 64); border-color: rgb(72, 87, 97); }
+​ 58 #blockalert.ulert-info.txdark { color: rgb(153, 205, 230); background-color: rgb(48, 58, 64); border-color: rgb(72, 87, 97); }
+​ 59 #blockalert.ullert-info.txdark { color: rgb(153, 205, 230); background-color: rgb(48, 58, 64); border-color: rgb(72, 87, 97); }
+​ 60 div .alert-warning.txdark { color: rgb(185, 185, 185); background-color: rgb(95, 79, 0); border-color: rgb(185, 125, 0); }
+​ 61 div .ulert-warning.txdark { color: rgb(185, 185, 185); background-color: rgb(95, 79, 0); border-color: rgb(185, 125, 0); }
+​ 62 div .ullert-warning.txdark { color: rgb(185, 185, 185); background-color: rgb(95, 79, 0); border-color: rgb(185, 125, 0); }
+​ 63 div #plain.alert-info.txdark { background-color: rgba(87, 130, 169, 0.22); border-color: rgb(60, 70, 74); padding: 6px; box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px 0px; color: rgb(189, 189, 189); }
+​ 64 div #plain.ulert-info.txdark { background-color: rgba(87, 130, 169, 0.22); border-color: rgb(60, 70, 74); padding: 6px; box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px 0px; color: rgb(189, 189, 189); }
+​ 65 div #plain.ullert-info.txdark { background-color: rgba(87, 130, 169, 0.22); border-color: rgb(60, 70, 74); padding: 6px; box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px 0px; color: rgb(189, 189, 189); }
+​ 66 a#plain.btn.txdark { background-color: lightslategrey; }
+​ 67 div #xxx.alert-info.txlight { background-color: rgb(255, 203, 237); border-color: rgb(255, 169, 224); }
+​ 68 div #xxx.ulert-info.txlight { background-color: rgb(255, 203, 237); border-color: rgb(255, 169, 224); }
+​ 69 div #xxx.ullert-info.txlight { background-color: rgb(255, 203, 237); border-color: rgb(255, 169, 224); }
+​ 70 a#xxx.btn.txlight { background-color: rgb(125, 93, 125); border-color: pink; }
+​ 71 div #plain.alert-info.txlight { background-color: rgb(217, 237, 247); border-color: rgb(188, 232, 241); }
+​ 72 div #plain.ulert-info.txlight { background-color: rgb(217, 237, 247); border-color: rgb(188, 232, 241); }
+​ 73 div #plain.ullert-info.txlight { background-color: rgb(217, 237, 247); border-color: rgb(188, 232, 241); }
+​ 74 a#plain.btn.txlight { background-color: lightslategrey; border-color: black; }
+​ 75 div .highlight.txdark { background-color: rgba(183, 169, 0, 0.16); }
+​ 76 div .highlight.txlight { background-color: rgba(255, 255, 0, 0.12); }
+​ 77 div .rounded.txlight { border-radius: 5px; }
+​ 78 div .rounded.txdark { border-radius: 5px; }
+​ 79 .fpboxheader.txdark { background-color: rgb(63, 59, 80); }
+​ 80 .badge.txdark { color: rgb(181, 181, 181); background-color: rgb(76, 76, 76); }
+​ 81 .badge.badge-secondary.txdark { background-color: rgb(76, 76, 76); color: rgb(195, 195, 195); }
+​ 82 #nonzero.badge.badge-secondary.txdark { color: gold; }
+​ 83 #nonzero.badge.badge-secondary.txlight { color: gold; }
+​ 84 .btn.txdark { border: 0px; }
+​ 85 .btn.lift.txdark { box-shadow: black 0px 0px 7px 0px; }
+​ 86 .btn.lightlift.txdark { box-shadow: grey 0px 0px 7px 0px; }
+​ 87 .btn.inset.txdark { box-shadow: black 0px 0px 7px 0px inset; }
+​ 88 .btn.btn-warning.txdark { background-color: rgb(128, 70, 0); color: rgb(210, 209, 209); }
+​ 89 .btn.btn-warning:hover.txdark { background-color: rgb(152, 84, 0); }
+​ 90 .btn.btn-primary.txdark { background-color: rgb(30, 76, 115); color: rgb(183, 183, 183); }
+​ 91 .btn.btn-primary:hover.txdark { background-color: rgb(24, 61, 93); }
+​ 92 .btn.btn-info.txdark { background-color: rgb(64, 98, 128); color: rgb(183, 183, 183); }
+​ 93 .btn.btn-info:hover.txdark { background-color: rgb(48, 73, 95); }
+​ 94 .btn.btn-info2.txdark { background-color: rgb(38, 84, 88); color: rgb(169, 169, 169); }
+​ 95 .btn.btn-info2:hover.txdark { background-color: rgb(31, 71, 74); }
+​ 96 .btn.btn-info3.txdark { background-color: rgb(84, 84, 84); color: rgb(183, 183, 183); }
+​ 97 .btn.btn-info3:hover.txdark { background-color: rgb(68, 67, 67); }
+​ 98 .btn.btn-danger.txdark { background-color: rgb(121, 0, 0); color: rgb(222, 186, 0); }
+​ 99 .btn.btn-danger:hover.txdark { background-color: rgb(202, 0, 0); }
+​ 100 .btn.flist.txlight { border-color: rgba(255, 255, 255, 0); padding: 3px; }
+​ 101 .btn:focus.txdark { outline: unset; }
+​ 102 .bg-danger.txdark { background-color: rgba(70, 0, 0, 0.46); }
+​ 103 .bg-info.txdark { background-color: rgb(87, 109, 119); }
+​ 104 .bg-success.txdark { background-color: rgb(33, 74, 44); }
+​ 105 .alert-success.txdark { color: rgb(119, 232, 121); background-color: rgb(33, 74, 44); border-color: rgb(45, 113, 63); }
+​ 106 .ulert-success.txdark { color: rgb(119, 232, 121); background-color: rgb(33, 74, 44); border-color: rgb(45, 113, 63); }
+​ 107 .ullert-success.txdark { color: rgb(119, 232, 121); background-color: rgb(33, 74, 44); border-color: rgb(45, 113, 63); }
+​ 108 .alert-danger.txdark { color: rgb(239, 100, 97); background-color: rgb(80, 36, 36); border-color: rgb(140, 64, 64); }
+​ 109 .ulert-danger.txdark { color: rgb(239, 100, 97); background-color: rgb(80, 36, 36); border-color: rgb(140, 64, 64); }
+​ 110 .ullert-danger.txdark { color: rgb(239, 100, 97); background-color: rgb(80, 36, 36); border-color: rgb(140, 64, 64); }
+​ 111 .table-striped.txdark > tbody > tr:nth-of-type(2n+1) { background-color: rgb(41, 41, 41); }
+​ 112 .table-striped.table-hover.txdark > tbody > tr:hover { background-color: rgb(60, 57, 57); }
+​ 113 .table.txdark > tbody > tr > td, .table.txdark > tbody > tr > th, .table.txdark > tfoot > tr > td, .table.txdark > tfoot > tr > th, .table.txdark > thead > tr > td, .table.txdark > thead > tr > th { border-top: unset; }
+​ 114 #imdbpage.txlight, #imdbedit.txlight { color: rgb(51, 51, 51); background-color: white; }
+​ 115 hr.txdark { border-top: 1px solid rgb(53, 53, 53); }
+​ 116 textarea.mail.txdark, input.def.txdark { border: 2px solid rgb(95, 86, 86); background-color: rgb(66, 59, 72); color: rgb(191, 191, 191); font-family: monospace; }
+​ 117 textarea.mail.txdark#ghosted { background-color: rgb(66, 66, 66); }
+​ 118 #emojibar.txdark { padding-bottom: 2px; background-color: rgb(66, 59, 72); }
+​ 119 .badge.badge-light.commentsbadge.txdark { background-color: rgb(99, 99, 99); }
+​ 120 #zerocomms.badge.badge-light.commentsbadge.txdark { color: lightgray; }
+​ 121 #nonzerocomms.badge.badge-light.commentsbadge.txlight { background-color: rgb(70, 70, 70); color: gold; }
+​ 122 #nonzerocomms.badge.badge-light.commentsbadge.txdark { color: gold; }
+​ 123 .badge.badge-light.commentsbadge.txlight { background-color: darkgray; color: rgb(86, 86, 86); }
+​ 124 .commenthead { padding: 5px 10px 5px 40px; border-radius: 5px; }
+​ 125 #usercomment.commenthead.txlight { background-color: lavender; }
+​ 126 #anoncomment.commenthead.txlight { background-color: rgb(242, 242, 242); }
+​ 127 #usercomment.commenthead.txdark { background-color: rgb(56, 56, 56); }
+​ 128 #anoncomment.commenthead.txdark { background-color: rgb(64, 56, 66); }
+​ 129 img.profile.txdark, img.profileb.txdark { border-color: rgb(105, 105, 105); }
+​ 130 img.profileadult.txdark, img.profilebadult.txdark { border-color: rgb(148, 85, 85); }
+​ 131 img.dim.txdark { filter: brightness(75%); }
+​ 132 #guestcomment.btn.btn-info.txlight { background-color: rgb(229, 118, 230); border-color: rgb(229, 118, 230); }
+​ 133 #guestcomment.btn.btn-info.txdark { background-color: rgb(110, 35, 111); border-color: rgb(229, 118, 230); }
+​ 134 #guestcomment.btn.btn-info.txdark:hover { background-color: rgb(110, 35, 111); }
+​ 135 div .torrentwidget.txdark { background-color: rgb(64, 63, 63); box-shadow: rgb(16, 16, 16) 0px 0px 11px 0px; }
+​ 136 div.torrentwidgetdlbox.txdark { background-color: rgb(39, 39, 39); }
+​ 137 ol.breadcrumb.forumwidget.txlight { box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 20px 2px inset; }
+​ 138 ol.breadcrumb.txdark { background-color: rgb(56, 56, 56); }
+​ 139 ol.breadcrumb.forumwidget.txdark { background-color: rgb(64, 63, 63); }
+​ 140 nav.shadow.txdark { box-shadow: rgb(16, 16, 16) 0px 0px 11px 0px; }
+​ 141 ol .breadcrumb.txdark > .active { color: rgb(173, 173, 173); }
+​ 142 img.invert.txdark { filter: invert(1) brightness(65%); }
+​ 143 .btn.catchup.txlight { background-color: wheat; border-color: wheat; }
+​ 144 #nonzeroposts.btn.viewunread.txlight { background-color: lightcoral; border-color: lightcoral; }
+​ 145 #muchposts.btn.viewunread.txlight { background-color: rgb(255, 69, 69); border-color: rgb(255, 69, 69); }
+​ 146 #nonzeroposts.btn.viewunread.txdark { background-color: rgb(160, 3, 3); color: rgb(222, 186, 0); }
+​ 147 .forumhead.txdark { background-color: rgb(56, 56, 56); border: 0px; color: rgb(153, 153, 153); }
+​ 148 .subforumhead.txdark { background-color: rgb(35, 34, 34); }
+​ 149 .subforumhead.txlight { background-color: rgb(191, 191, 191); }
+​ 150 .table.txdark > tbody > tr > td { border-top: 0px; }
+​ 151 span.username.user { color: rgb(81, 100, 125); }
+​ 152 span.username.trusted-user { color: rgb(0, 123, 206); }
+​ 153 span.username.trial-uploader { color: rgb(151, 86, 183); }
+​ 154 span.username.verified-uploader { color: rgb(23, 85, 178); }
+​ 155 span.username.trusted-uploader { color: rgb(60, 125, 62); }
+​ 156 span.username.torrent-officer { color: rgb(255, 146, 0); }
+​ 157 span.username.moderator { color: rgb(255, 0, 0); }
+​ 158 span.username.admin { color: rgb(107, 95, 54); }
+​ 159 span.username.super-admin { color: rgb(0, 0, 235); }
+​ 160 span.username.tgx-exec { color: rgb(0, 0, 0); }
+​ 161 span.username.super-admin.txdark { color: rgb(105, 51, 232); text-shadow: rgb(0, 0, 0) 0px 0px 20px; }
+​ 162 span.username.tgx-exec.txdark { text-shadow: rgb(144, 144, 144) 0px 0px 10px; }
+​ 163 span.username.user.txdark { text-shadow: rgb(0, 0, 0) 0px 0px 11px; }
+​ 164 h3.txdark > i.headericon { color: rgb(187, 122, 2); }
+​ 165 select.styled.txdark { background-color: rgb(68, 68, 68); color: rgb(152, 152, 152); }
+​ 166 .btn.forumsearch.txdark { border-radius: 0px 5px 5px 0px; border: 1px solid dimgray; }
+​ 167 .btn.btn-default.btn-sm.bbbox.txdark { margin: -2px -1px; padding: 5px 10px; border: 1px solid dimgray; background-color: rgb(41, 41, 41); }
+​ 168 .btn.btn-default.btn-sm.bbbox.txdark:hover { background-color: rgb(76, 76, 76); }
+​ 169 .btn.btn-default.btn-sm.bbbox:focus { color: rgb(239, 200, 0); }
+​ 170 ul.dropdown-menu.txdark { background-color: rgb(41, 41, 41); }
+​ 171 ul.dropdown-menu.txdark a { color: rgb(135, 135, 137); }
+​ 172 ul.dropdown-menu.txdark li a:hover { background-color: rgb(51, 51, 51); }
+​ 173 .ffbutton.txlight { color: black; }
+​ 174 .ffbutton.txdark { color: rgb(173, 173, 173); }
+​ 175 .btn.leftbtn.txdark { border-radius: 5px 0px 0px 5px; border: 1px solid dimgray; }
+​ 176 #quotes.txdark { border: 1px solid dimgray; background-color: rgb(70, 70, 70); }
+​ 177 .likeboxtr.txlight { background-color: rgb(233, 233, 233); }
+​ 178 div .tagtext { padding: 3px 10px 0px 15px; font-weight: 900; }
+​ 179 div .tagtext.txlight { color: midnightblue; }
+​ 180 div .tagtext.txdark { color: rgb(189, 189, 189); }
+​ 181 ul.nav-tabs.txdark { border-bottom: 1px solid rgb(76, 76, 76); }
+​ 182 .tabs.txdark > li.active > a { background-color: rgb(148, 128, 0); border: 1px solid rgb(76, 76, 76); color: black; }
+​ 183 .tabs.txdark > li.active > a:hover, .tabs.txdark > li.active > a:focus { background-color: rgb(93, 80, 0); border: 1px solid rgb(76, 76, 76); color: rgb(226, 195, 0); }
+​ 184 .tabs.txdark > li > a:hover, .tabs.txdark > li > a:focus { background-color: rgb(93, 80, 0); border: 1px solid rgb(76, 76, 76); color: rgb(226, 195, 0); }
+​ 185 td.hotlist.userpickitems { padding: 3px; }
+​ 186 td.hotlist.userpickitems.txlight { background-color: rgb(197, 195, 195); border: 10px solid gainsboro; }
+​ 187 td.hotlist.userpickitems.txdark { background-color: rgb(41, 41, 41); border: 10px solid rgb(79, 79, 79); }
+​ 188 .bginfo.txdark { background-color: rgba(87, 130, 169, 0.22); }
+​ 189 table.statusrank.txdark td { border-color: dimgray; }
+​ 190 .ucadminlist.txdark { background-color: rgb(56, 56, 56); }
+​ 191 #ucastatus.ucadminlist.txdark { background-color: rgb(56, 56, 56); }
+​ 192 div.newtablerow.header.int.txdark { background-color: rgb(63, 59, 80); }
+​ 193 .newtablerow.int.txdark { background-color: rgb(63, 59, 80); color: rgb(165, 165, 165); }
+​ 194 .newtablerow.txdark { background-color: rgb(41, 41, 41); }
+​ 195 .newtablerow.txdark:nth-of-type(2n+1) { background-color: rgb(56, 51, 60); }
+​ 196 .newtablerow.txdark:hover { background-color: rgb(78, 78, 64); }
+​ 197 .tagbox { border-radius: 6px; background-color: rgb(217, 237, 247); width: 100%; padding: 3px; resize: none; }
+​ 198 .namebadge.txdark { background: rgb(53, 53, 53); border-color: dimgray; }
+​ 199 .namebadge.tgxdark:hover { box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px; opacity: 0.6; background-position: left bottom; transition-duration: 0.5s; }
+​ 200 .chattersonline.txdark { background-color: rgb(72, 72, 72); }
+​ 201 .chatbox.txdark { box-shadow: rgb(72, 72, 72) 0px 0px 20px 10px inset; background-color: rgb(56, 56, 56); }
+​ 202 div.chatrows.txdark:nth-child(2n) { background-color: rgb(47, 47, 47); }
+​ 203 .chatcellmsg.txdark { color: unset; }
+​ 204 .btn.chatsubmit.txlight { color: darkgoldenrod; background-color: beige; }
+​ 205 .chatinput.txlight { background-color: rgb(247, 255, 216); }
+​ 206 .radiodescr.txlight { color: cadetblue; }
+​ 207 .radiospinner { color: slategray; }
+​ 208 .radiospinner.txdark { color: rgb(87, 104, 121); }
+​ 209 .radiobox.txdark { background-color: rgb(56, 56, 56); }
+​ 210 .chatoptions.txdark { border: 1px solid dimgray; border-radius: 5px; }
+​ 211 #ddnews.txdark { background-color: rgb(47, 47, 47); }
+​ 212 #ddnews.txdark:nth-of-type(2n+1) { background-color: rgb(56, 56, 56); }
+​ 213 .thumbnail.txdark { background-color: rgb(56, 56, 56); border: 2px dashed dimgray; }
+​ 214 .arcadescorebanner.txlight { background-color: aliceblue; }
+​ 215 .caption.arcade.txdark { color: rgb(173, 173, 173); }
+​ 216 div #arcade.jumbotron.txdark { box-shadow: rgb(47, 47, 47) 0px 0px 15px 9px inset; background-color: rgba(107, 107, 107, 0.79); }
+​ 217 .noHover { pointer-events: none; }
+​ 218 .form-control[disabled].txdark { background-color: rgb(14, 14, 14); color: rgb(2, 136, 2); font-family: monospace; }
+​ 219 .btn-default.highlightns.txlight { background-color: wheat; }
+​ 220 .btn-default.highlightns.txdark { background-color: rgb(103, 77, 28); }
+​ 221 .chatcelltimes.highlightct.txlight { background-color: rgba(201, 146, 255, 0.16); }
+​ 222 .chatcelltimes.highlightct.txdark { background-color: rgba(62, 49, 82, 0.73); }
+​ 223 div.ubposttable.txdark > div.tprow, div.ubreplytable.txdark > div.tprow, div.ubstickytable.txdark > div.tprow { background-color: rgb(80, 80, 80); }
+​ 224 div.ubposttable.txdark > div.tprow:nth-of-type(2n+1), div.ubreplytable.txdark > div.tprow:nth-of-type(2n+1), div.ubstickytable.txdark > div.tprow:nth-of-type(2n+1) { background-color: rgb(64, 64, 64); }
+​ 225 li.mainmenu.txdark > a:hover, li.mainmenu.txdark > a:focus { background-color: rgb(56, 56, 56); color: gold; }
+​ 226 a.logins.txdark:hover, a.logins.txdark:focus { background-color: rgb(56, 56, 56); color: gold; }
+​ 227 blockquote.txdark { border-left: 5px solid rgb(0, 0, 0); }
+​ 228 .likeboxtr.txdark { background-color: rgb(59, 63, 66); }
+​ 229 .tdmoderated { background-color: gainsboro; box-shadow: gainsboro 0px 0px 20px 14px; }
+​ 230 .tdmoderated.txdark { background-color: rgb(53, 34, 34); box-shadow: rgb(53, 34, 34) 0px 0px 20px 14px; }
+​ 231 #imdbttdhead.txlight { background-color: antiquewhite; }
+​ 232 #imdbttdhead.txdark { background-color: rgb(39, 38, 38); }
+​ 233 #imdbttdsubhead.txlight { background-color: lightgrey; }
+​ 234 #imdbttdsubhead.txdark { background-color: rgb(68, 68, 68); }
+​ 235 #commpending.txlight { background-color: darksalmon; }
+​ 236 #commpending.txdark { background-color: dimgray; }
+​ 237 #torcolor.txlight { background-color: aliceblue; }
+​ 238 #newscolor.txlight { background-color: antiquewhite; }
+​ 239 #torcolor.txdark { background-color: rgb(0, 79, 148); }
+​ 240 #newscolor.txdark { background-color: rgb(63, 74, 0); }
+​ 241 .commtd.txlight { background-color: gainsboro; }
+​ 242 .commtdfoot.txlight { background-color: beige; }
+​ 243 .commtd.txdark { background-color: rgb(35, 40, 45); }
+​ 244 .commtdfoot.txdark { background-color: rgb(29, 29, 26); }
+​ 245 .table.commstable.txdark > tbody > tr > td { border-top: 0px; }
+​ 246 dl.txdark > #chatcoldd:nth-of-type(2n+1) { background-color: rgb(62, 61, 61); }
+ 247 dl.txdark { background-color: rgb(47, 47, 47); }
+ 248 .vipclass { color: rgb(223, 159, 16) !important; }
+ 249 .bannedclass { color: rgb(170, 170, 170) !important; }
+ 250 .blockedclass { color: rgb(170, 170, 170) !important; }
+ 251 .boobclass { color: rgb(255, 97, 229) !important; }
+ 252 #intblock.panel-primary.previewbox { border-color: lightgray; }
+ 253 #intblock.panel-primary.previewbox.txdark { background-color: rgb(49, 44, 53); border-color: rgb(97, 97, 97); }
+ 254 #intblockheader.panel-heading.previewbox { background-color: darkgrey; }
+ 255 #intblockheader.panel-heading.previewbox.txdark { background-color: rgb(60, 60, 60); border: 0px; }
+ 256 .newsflash.txlight { color: black; }
+ 257 .newsflash.txdark { color: sandybrown; }
+ 258 .usertablerow.txdark > td { border-top: 1px solid rgb(84, 84, 84); }
+ 259 .highlightrow:hover.txdark { background-color: rgb(33, 33, 33); }
+ 260 .control:hover input ~ .control__indicator.txdark, .control input:focus ~ .control__indicator.txdark { background: rgb(125, 125, 125); }
+ 261 .txdark#quicksearchgroup .tt-suggestion, .txdark#quicksearchgroup .tt-dropdown-menu { text-shadow: rgb(0, 0, 0) 0px 0px 4px; background-color: rgb(56, 56, 56); }
+ 262 .txdark#quicksearchgroup #tt-footer, .txdark#quicksearchgroup #tt-footer { background-color: rgb(150, 127, 0); color: black; }
+ 263 .txdark#quicksearchgroup .tt-cursor, .txdark#quicksearchgroup .tt-cursor { background-color: rgb(73, 74, 0); box-shadow: rgb(78, 78, 78) 1px 6px 15px 3px; }
+ 264 table.forumsearch tr td { background-color: gainsboro; }
+ 265 table.forumsearch.txdark tr td { background-color: unset; }
+ 266 a.btn.ddbutton { display: block; }
+ 267 a.btn.ddbutton.txdark { margin: 6px 8px 0px; }
+ 268 a.btn.ddbutton.txlight { margin: 6px 4px 0px; }
+ 269 .buttonbox.txlight { color: slategrey; }
+ 270 .buttonbox.txdark { background-color: rgb(56, 56, 56); color: rgb(189, 189, 189); }
+ 271 .hltext.txlight { color: rgb(195, 0, 0); }
+ 272 .hltext.txdark { color: rgb(255, 166, 0); }
+ 273 .labelspace.txlight { margin: 5px; }
+ 274 .votebutton.txlight { color: steelblue; }
+ 275 .votebutton.txdark { color: goldenrod; }
+

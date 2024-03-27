@@ -3,12 +3,13 @@
 // @namespace   RARBG_Show_Poster_Plus
 // @description Shows high-quality posters on the browse page.
 // @icon        https://www.google.com/s2/favicons?sz=256&domain=rarbg.to
-// @version     32
+// @version     33
 // @author      Sappurit
 // @updateURL   https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @downloadURL https://github.com/Sappurit/Userscript/raw/main/RARBG_Show_Poster_Plus/RARBG_Show_Poster_Plus.user.js
 // @license     MIT
 // @match       https://*.rarbg.to/torrents.php*
+// @match       https://*.rargb.to/torrents.php*
 // @match       https://*.rarbgget.org/torrents.php*
 // @match       https://*.rarbgenter.org/torrents.php*
 // ==/UserScript==
@@ -49,30 +50,20 @@ var num = 0;
     let thumbWidth = '200px';
     let thumbHeight = '300px';
 
-    let header = document.createElement('td');
-    header.setAttribute('align', 'center');
-    header.setAttribute('class', 'header6 header header40');
-    header.style.width = thumbWidth;
-    header.innerText = 'Poster';
+    let posterHeader = document.createElement('td');
+    posterHeader.setAttribute('align', 'center');
+    posterHeader.setAttribute('class', 'header6 header header40');
+    posterHeader.style.width = thumbWidth;
+    posterHeader.innerText = 'Poster';
 
     let table = document.querySelector('table.lista2t');
-    table.rows[0].insertBefore(header, table.rows[0].cells[1]);
+    table.rows[0].insertBefore(posterHeader, table.rows[0].cells[1]);
 
 //  for (let row of table.rows)
     for (let i = 1; i < table.rows.length; i++)
     {
-        let poster = document.createElement('td');
-        poster.setAttribute('align', 'center');
-        poster.setAttribute('class', 'lista');
 
         let row = table.rows[i];
-        row.insertBefore(poster, row.cells[1]);
-        row.cells[2].style.setProperty('min-width', '530px', 'important');
-        row.cells[2].style.setProperty('max-width', '530px', 'important');
-        row.cells[3].style.setProperty('min-width', '70px', 'important');
-        row.cells[3].style.setProperty('max-width', '70px', 'important');
-        row.cells[4].style.setProperty('min-width', '70px', 'important');
-        row.cells[4].style.setProperty('max-width', '70px', 'important');
 
         try
         {
@@ -80,7 +71,7 @@ var num = 0;
             torrent.setAttribute('target', '_blank');
 
             let torrentTitle = torrent.innerText;
-            let torrentSize  = row.cells[4].innerText;
+            let torrentSize  = row.cells[3].innerText;
             let torrentStyle = window.getComputedStyle(torrent); // final CSS
 
             //---------------------------------------------------------------------
@@ -100,6 +91,10 @@ var num = 0;
             posterLink = posterLink.replace(/over_opt/, 'poster_opt');                 // Category Movies.
             posterLink = posterLink.replace(/_small/, '_banner_optimized');            // Category TV.
 
+            let posterElement = document.createElement('td');
+            posterElement.setAttribute('align', 'center');
+            posterElement.setAttribute('class', 'lista');
+
             let posterAnchor = document.createElement('a');
             posterAnchor.href = posterLink;
             posterAnchor.setAttribute('target', '_blank');
@@ -112,7 +107,17 @@ var num = 0;
 //          posterImage.style.objectFit = 'cover';
 
             posterAnchor.append(posterImage);
-            poster.append(posterAnchor);
+            posterElement.append(posterAnchor);
+            row.insertBefore(posterElement, row.cells[1]);
+
+            //---------------------------------------------------------------------
+
+            row.cells[2].style.setProperty('min-width', '530px', 'important');
+            row.cells[2].style.setProperty('max-width', '530px', 'important');
+            row.cells[3].style.setProperty('min-width', '70px', 'important');
+            row.cells[3].style.setProperty('max-width', '70px', 'important');
+            row.cells[4].style.setProperty('min-width', '70px', 'important');
+            row.cells[4].style.setProperty('max-width', '70px', 'important');
 
             //---------------------------------------------------------------------
 
@@ -217,6 +222,10 @@ var num = 0;
                     trailerElement.style.textDecoration = 'none';
                     torrent.parentElement.append('  󠀠 ', trailerElement);
                 }
+
+                //---------------------------------------------------------------------
+
+
 
                 //---------------------------------------------------------------------
             });
