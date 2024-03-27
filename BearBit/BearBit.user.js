@@ -19,6 +19,8 @@
 /**
 ! Remove Tips
 bearbit.co##.outer > p:has-text(Tip:)
+bearbit.co##a[title="Bookmark File"]
+bearbit.co##a[title="Promote this Torrent"]
 
 ! Remove usericons and slogans
 !||bearbit.co/pic/usericon/*$image
@@ -48,6 +50,7 @@ bearbit.co##td[width="260"][align="left"] > font[class="small"][color="gray"]
 ||bearbit.co/pic/gay.gif
 ||bearbit.co/pic/smilies/yehh.gif
 ||bearbit.co/pic/smilies/thumbsup.gif
+||bearbit.co/pic/smilies/clap2.gif
 ||bearbit.co/pic/smilies/zeza-SirensJY2U.gif
 **/
 //------------------------------------------------------------------------
